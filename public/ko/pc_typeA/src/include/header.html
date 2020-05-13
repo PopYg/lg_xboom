@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" @@gxHtml>
+<head>
+    <title>@@pageTitle</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="title" @@metaTitle>
+    <meta name="Description" @@metaDescription>
+    <meta name="Keywords" @@metaKeywords>
+    <meta name="Author" content="LG OLED AI">
+    <meta name="robots" content="ALL">
+    <link rel="icon" type="image/png" href="../../images/common/favicon.ico" />
+    <link rel="stylesheet" href="../../stylesheets/css/common.css">
+    <script src="../../javascripts/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+        var setCookie = function(name, value, exp) {
+            var date = new Date();
+            date.setTime(date.getTime() + exp*24*60*60*1000);
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+        };
+
+        var getCookie = function(name) {
+            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value? value[2] : null;
+        };
+        if(getCookie("analysisCookie") === 'Y') {
+            // adobe
+            var d = document,
+                s = d.createElement('script'),
+                h = d.head || d.getElementsByTagName("head")[0],
+                as = {
+                    "src": "//assets.adobedtm.com/322f63b58a72/8a275ffd7aa6/launch-f8ed4c3e94f9.min.js",
+                    "async": "async"
+                };
+            for (var i in as) {
+                s.setAttribute(i, as[i]);
+            }
+            h.appendChild(s);
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-X5WZ');
+        }
+    </script>
+</head>
+<body>
+<div id="cookieAllPc">
+    <div class="change_wrap">
+        <button type="button" id="cookieChange">Change Cookies Settings</button>
+    </div>
+    <div class="cookie_top">
+        <div class="top_box">
+            <p>
+                We use strictly necessary cookies for this website to function, we do have other optional cookies,
+                which you can enable and descriptions of these are available beside the opt in buttons.
+                To find out further information on our cookies, <a href="">please see our Privacy and Cookie Policy.</a>
+            </p>
+            <div class="accept_wrap">
+                <button type="button" id="allAgreeBtn">ACCEPT ALL COOKIES</button>
+                <button type="button" id="detailOpenBtn">SAVE PREFERENCES</button>
+            </div>
+        </div>
+        <button type="button" id="cookieClose">close btn</button>
+    </div>
+    <div class="cookie_bottom">
+        <div class="bottom_box">
+            <p>You will find below the different types of cookies used on LG.com. If you wish to allow any of these cookies, click to opt in.</p>
+            <ol>
+                <li>
+                    <dl>
+                        <dt><span>Functional Cookies</span></dt>
+                        <dd>Enable for useful website features like product reviews, the where to buy function, recently viewed items and search data.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="functionalAgree">
+                        <label for="functionalAgree">Functional Cookies</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Social media</span></dt>
+                        <dd>Connect with your social channels to share LG Technology with friends for example on Facebook and Twitter.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="socialAgree">
+                        <label for="socialAgree">Social media</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Website analysis</span></dt>
+                        <dd>Help us to understand your behaviour on our website so we can improve the content and personalise your experience on LG.COM</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="analysisAgree">
+                        <label for="analysisAgree">Website analysis</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Advertising and <br>targeting cookies</span></dt>
+                        <dd>Allow us to gather information about how you interact with our advertising and our website.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="advertisingAgree">
+                        <label for="advertisingAgree">Advertising and targeting cookies</label>
+                    </div>
+                </li>
+            </ol>
+            <button type="button" id="cookieSave">SAVE</button>
+        </div>
+    </div>
+</div>
+<div id="wrap" @@mainFooterNone>
+    <!-- header-->
+    <header id="header" @@headerFixed>
+        <div class="header_wrap">
+            <h1 id="logo"><a href="../main/main.jsp" title="LG OLED AI ThinQ Logo"></a></h1>
+            <div id="allNav">
+                <button type="button" id="allMenuBtn" title="Find shortcut menu"><span>all navigation open/close</span></button>
+                <nav>
+                    <h2 class="hidden-txt">all navigation</h2>
+                    <div class="wrap">
+                        <ul>
+                            <li><a href="../sub/cinema.jsp" title="Learn more about LG OLED Cinema">LG OLED Cinema</a></li>
+                            <li><a href="../sub/gaming.jsp" title="Learn more about LG OLED Gaming">LG OLED Gaming</a></li>
+                            <li><a href="../sub/sports.jsp" title="Learn more about LG OLED Sport">LG OLED Sport</a></li>
+                            <li><a href="../sub/life.jsp" title="Learn more about LG OLED Lifestyle">LG OLED Lifestyle</a></li>
+                            <li><a href="../sub/core.jsp" title="Learn more about LG OLED Technology">LG OLED Technology</a></li>
+                            <li><a href="" title="Learn more about LG OLED ThinQ AI">LG OLED ThinQ AI</a></li>
+                            <!--<li><a href="" title="Learn more about LG OLED Gallery Design">LG OLED Gallery Design</a></li>-->
+                            <li><a href="../sub/lineup.jsp" title="Learn more about LG OLED Line up">LG OLED Line up</a></li>
+                        </ul>
+                    </div>
+                    <div class="link_box">
+                        <ul>
+                            <li><a href="#">SEE OLED TV</a></li>
+                            <li><a href="#">BUY NOW</a></li>
+                        </ul>
+                        <p>ⓒ 2020 LG Electronics.</p>
+                    </div>
+                </nav>
+                <div id="navDimmed" class="dimmed"></div>
+            </div>
+            <a href="#" class="header_buy" title="Find lineup page">BUY NOW</a>
+        </div>
+    </header>
+    <!-- //header-->

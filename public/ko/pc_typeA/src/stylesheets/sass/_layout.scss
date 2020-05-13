@@ -1,0 +1,397 @@
+@charset "UTF-8";
+#cookieAllPc {
+    width:100%; height:50px; min-width:1280px; position:absolute; top:0; left:0; z-index:201; overflow:hidden;
+    .change_wrap {width:100%; height:50px; background-color:$gray5; text-align:center; position:absolute; top:0; z-index:1; overflow:hidden;}
+    #cookieChange {
+        display:inline-block; position:relative; padding:0 40px 0 20px; line-height:50px; color:$gray2; font-weight:$bold;
+        &:after {
+            width:0; height:0; display:block; content:""; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom-style:solid; border-bottom-width:8px; border-bottom-color:$gray2;
+            position:absolute; right:20px; top:22px;
+            @include transition;
+            @include rotate(180);
+        }
+    }
+    .cookie_top {
+        background-color:#ebeced; padding:0 50px; position:relative; display:none;
+        .top_box {
+            width:1280px; padding:25px 0; margin:0 auto;
+            @extend %clearfix;
+            p {
+                width:50%; float:left; font-size:16px; line-height:20px;
+                a {text-decoration:underline;}
+            }
+            .accept_wrap {
+                float:right; padding:8px 0 0;
+                @extend %clearfix;
+                button {
+                    height:44px; float:left; font-weight:700;
+                    @include borderRadius(5px);
+                    &#allAgreeBtn {background-color:$red; padding:0 24px; color:$white;}
+                    &#detailOpenBtn {
+                        padding:0 44px 0 24px; color:$white; position:relative; background-color:$red; margin:0 0 0 12px;
+                        @include borderSet(1px, solid, $red);
+                        @include boxSizing;
+                        @include transition;
+                        &:after {
+                            width:0; height:0; display:block; content:""; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom-style:solid; border-bottom-width:8px; border-bottom-color:$white;
+                            position:absolute; right:22px; top:18px;
+                            @include transition;
+                            @include rotate(180);
+                        }
+                        &.active {
+                            background-color:$white; color:$gray1; border-color:$white;
+                            &:after {
+                                border-bottom-color:$gray1;
+                                @include rotate(0);
+                            }
+                            &:hover {border-color:$red;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cookie_bottom {
+        width:100%; background-color:$white; position:absolute; z-index:10; display:none;
+        .bottom_box {
+            width:1280px; margin:0 auto; position:relative; padding:0 0 85px;
+            p {line-height:20px; font-size:16px; padding:25px 0; border-bottom:1px solid $gray4;}
+            ol {
+                padding:20px 0 0;
+                @extend %clearfix;
+            }
+            li {
+                width:280px; float:left; margin:0 0 0 40px; position:relative;
+                &:first-child {margin:0;}
+            }
+            dl {
+                dt {
+                    font-size:22px; font-weight:700; height:44px; display:table;
+                    span {display:table-cell; vertical-align:middle;}
+                }
+                dd {padding:20px 0 0; font-size:16px; line-height:20px;}
+            }
+            .check_wrap {
+                position:absolute; top:9px; right:0;
+                input[type=checkbox] {
+                    position:absolute; left:-9999px;
+                    &:checked ~ label {
+                        background-color:$red;
+                        &:after {@include translate(16px, 0);}
+                    }
+                }
+                label {
+                    width:44px; height:28px; display:block; text-indent:-9999px; background-color:$gray3;
+                    @include borderRadius(14px);
+                    @include transition(background-color, .3s);
+                    &:after {
+                        width:22px; height:22px; display:block; content:""; position:absolute; left:3px; top:3px; background-color:$white;
+                        @include transition(transform, .3s);
+                        @include borderRadius(100%);
+                    }
+                    &:hover {background-color:$red;}
+                }
+            }
+        }
+        #cookieSave {
+            height:44px; padding:0 24px; background-color:$red; position:absolute; bottom:20px; right:0; color:$white; font-weight:700;
+            @include borderRadius(5px);
+        }
+    }
+    #cookieClose {
+        width:40px; height:40px; position:absolute; top:35px; right:120px; background-color:#adaeaf; text-indent:-9999px;
+        @include borderRadius(100%);
+        @include rotate(45);
+        @include transition(background-color, .2s);
+        &:before,
+        &:after {width:1px; height:19px; display:block; content:""; position:absolute; top:11px; left:20px; background-color:$white;}
+        &:after {@include rotate(90);}
+        &:hover {background-color:$red;}
+    }
+}
+html, body { max-width:100%;}
+html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
+
+/* layout */
+/* header */
+#header {
+    width:100%; height:70px; min-width:1280px; background-color:transparent; padding:0 68px; position:absolute; top:50px; z-index:200;
+    @include boxSizing;
+    @include transition(background-color, .2s);
+    &:after {
+        width:100%; height:1px; display:block; content:""; position:absolute; bottom:0; left:0; background-color:$white;
+        @include opacity(.4);
+    }
+    &.fixed {
+        background-color:$white; top:0; position:fixed;
+        &:after {background-color:$gray3;}
+        .header_wrap {
+            #logo a {background-image:url(../../images/layout/logo_fix.png);}
+            #allNav {
+                button {
+                    &:before,
+                    &:after,
+                    span {background-color:$gray1;}
+                }
+            }
+            .header_buy {
+                color:$gray1;
+                &:before {background-image:url(../../images/layout/buy_icon_fix.png);}
+                &:after {background-color:$gray1;}
+            }
+        }
+    }
+    .header_wrap {
+        position:relative; text-align:center;
+        #logo {
+            padding:21px 0 0; position:relative;
+            a {
+                width:232px; height:27px; display:inline-block; background-image:url(../../images/layout/logo.png); text-indent:-9999px;
+                @include backgroundSolt;
+                @include transition(background-image, .3s);
+            }
+        }
+        #allNav {
+            &.nav_open {
+                button {
+                    &:before {
+                        background-color:$gray1; top:10px;
+                        @include rotate(45);
+                    }
+                    &:after {
+                        background-color:$gray1; top:10px;
+                        @include rotate(-45);
+                    }
+                    span {width:0 !important; background-color:$gray1;}
+                }
+            }
+            button {
+                width:25px; height:25px; position:absolute; top:26px; left:0; text-indent:-9999px; z-index:30;
+                &:hover,
+                &:focus {
+                    span {width:70%;}
+                }
+                &:before,
+                &:after,
+                span {
+                    width:100%; height:3px; display:block; content:""; background-color:$white; position:absolute; left:0;
+                    @include transition;
+                }
+                &:before {top:0;}
+                &:after {top:16px;}
+                span {top:8px;}
+            }
+            nav {
+                height:100%;
+                width:50%; position:fixed; background-color:$white; left:0; top:0; display:table; text-align:center; z-index:20;
+                @include translate(-100%, 0);
+                h2 {text-indent:-9999px;}
+                .wrap {
+                    width:100%; height:85%;
+                    ul {
+                        position:relative; top:50%; transform:translate(0,-50%);
+                        &:after {content:""; display:block; clear:both;}
+                        li {
+                            height:63px; line-height:60px;
+                            &:first-child {padding:0;}
+                        }
+                        a {
+                            position:relative; color:#646668; font-size:34px; font-weight:$light; letter-spacing:1px;
+                            @include transition(all, .1s);
+                            &:hover {font-weight:$bold; color:$black;}
+                        }
+                    }
+                }
+            }
+            .link_box {
+                height:15%; clear:both; text-align:center; position:relative;
+                ul {
+                    display:inline-block; color:#646668; padding:0 30px 0 0;
+                    &:after {content:""; display:block; clear:both;}
+                    li {
+                        width:155px; float:left; position:relative;
+                        &:before {content:""; display:block; width:1px; height:16px; background-color:$gray4; position:absolute; left:5px; top:3px;}
+                        &:first-child {
+                            &:before {display:none;}
+                        }
+                        a {font-size:22px;}
+                        a:hover {font-weight:$bold;}
+                    }
+                }
+                p {font-size:12px; position:absolute; left:50%; transform:translate(-50%,0); bottom:40px; text-align:center; color:#646668;}
+            }
+            #navDimmed {z-index:10;}
+        }
+    }
+    .header_buy {
+        height:27px; line-height:27px; position:absolute; top:20px; right:0; z-index:1; font-weight:700; font-size:16px; color:$white; letter-spacing:1.2px;
+        @include transition(color, .2s);
+        &:before {
+            width:33px; height:27px; display:block; content:""; position:absolute; left:-42px; top:0; background-image:url(../../images/layout/buy_icon.png);
+            @include transition(background-image, .2s);
+        }
+        &:after {
+            width:0; height:1px; display:block; content:""; position:absolute; bottom:3px; left:0; background-color:$white;
+            @include transition(width, .2s);
+        }
+        &:hover,
+        &:focus {
+            &:after {width:100%;}
+        }
+    }
+}
+
+//footer
+#footer {
+    padding:23px 130px; position:relative; border-top:1px solid $gray4; font-weight:$regular;
+    .footer_wrap {height:29px; line-height:29px;}
+    p.copyright {width:100%; font-size:13px; text-align:center; position:absolute; left:0; color:$gray2;}
+    .etc_link {
+        float:left; font-size:12px; position:relative; z-index:1;
+        @extend %clearfix;
+        li {
+            float:left; margin:0 0 0 40px; position:relative;
+            &:first-child {
+                margin:0;
+                &:before {display:none;}
+            }
+            &:before {width:1px; height:8px; display:block; content:""; position:absolute; top:10px; left:-20px; background-color:$gray2;}
+        }
+        a {
+            position:relative; color:$gray2;
+            &:after {
+                width:100%; height:1px; display:block; content:""; position:absolute; left:0; bottom:-1px; background-color:$gray2;
+                @include scaleX(0);
+                @include transition(transform, .2s);
+            }
+            &:hover:after {@include scaleX(1)}
+        }
+    }
+    .share_wrap {
+        float:right; position:relative; z-index:1;
+        @extend %clearfix;
+        button {
+            height:29px; float:left; padding:0 22px 0 40px; background-image:url(../../images/layout/share_icon.png); font-size:12px;
+            @include backgroundSolt(15px, 50%);
+            @include borderSet(1px, solid, $gray2);
+            @include borderRadius(29px);
+            @include transition;
+            &:hover,
+            &:focus {background-color:$gray1; color:$white; border-color:$gray1; background-image:url(../../images/layout/share_icon_white.png);}
+        }
+        ol {
+            float:left; text-indent:-9999px;
+            @extend %clearfix;
+        }
+        li {
+            padding:0 0 0 15px; float:left;
+            &:nth-of-type(1) a {
+                background-image:url(../../images/layout/face_icon.png);
+                &:hover {background-image:url(../../images/layout/face_icon_white.png);}
+            }
+            &:nth-of-type(2) a {
+                background-image:url(../../images/layout/twitter_icon.png);
+                &:hover {background-image:url(../../images/layout/twitter_icon_white.png);}
+            }
+            &:nth-of-type(3) a {
+                background-image:url(../../images/layout/youtube_icon.png);
+                &:hover {background-image:url(../../images/layout/youtube_icon_white.png);}
+            }
+        }
+        a {
+            width:28px; height:28px; display:block;
+            @include backgroundSolt;
+            @include borderSet(1px, solid, $gray2);
+            @include borderRadius(29px);
+            @include transition;
+            &:hover,
+            &:focus {background-color:$gray1; border-color:$gray1;}
+        }
+    }
+    &.black_thema {
+        background-color:$black; border-top-color:#101010;
+        &:after {width:100%; height:em(72); display:block; content:""; background-color:$black; position:absolute; top:100%; left:0;}
+        p.copyright {color:$gray4;}
+        .etc_link {
+            a {
+                color:$gray4;
+                &:after {background-color:$white;}
+            }
+        }
+        .share_wrap {
+            button {
+                color:#f7f7f7; border-color:#f7f7f7; background-image:url(../../images/layout/share_icon_black.png);
+                &:hover {background-color:$white; border-color:$white; color:$gray2; background-image:url(../../images/layout/share_icon.png);}
+            }
+            li {
+                &:nth-of-type(1) a {
+                    background-image:url(../../images/layout/face_icon_black.png);
+                    &:hover {background-image:url(../../images/layout/face_icon.png);}
+                }
+                &:nth-of-type(2) a {
+                    background-image:url(../../images/layout/twitter_icon_black.png);
+                    &:hover {background-image:url(../../images/layout/twitter_icon.png);}
+                }
+                &:nth-of-type(3) a {
+                    background-image:url(../../images/layout/youtube_icon_black.png);
+                    &:hover {background-image:url(../../images/layout/youtube_icon.png);}
+                }
+            }
+            a {
+                border-color:#f7f7f7;
+                &:hover {background-color:$white; border-color:$white;}
+            }
+        }
+    }
+}
+
+//footer fixed
+#footerLink {
+    width:100%; height:em(48); position:fixed; bottom:0; text-align:center; z-index:150; padding:em(12) 0; border-top:1px solid $gray4; background-color:$white;
+    ol {
+        padding:0 68px; display:inline-block; font-size:em(23); font-weight:$regular;
+        @extend %clearfix;
+    }
+    li {
+        width:320px; float:left; margin:0 0 0 20px;
+        &:first-child {margin:0;}
+        &.lineup_footer {display:none;}
+    }
+    a {
+        width:100%; height:em(48); display:block; line-height:em(44); color:$gray1;
+        @include borderRadius(40px);
+        @include borderSet(1px, solid, #666);
+        @include transition;
+        @include boxSizing;
+        &:hover,
+        &:focus {background-color:$gray1; border-color:$gray1; color:$white;}
+    }
+    &.black_thema {
+        background-color:rgba(0,0,0,0.95); border-top-color:#101010;
+        a {
+            color:$white; border-color:#666;
+            &:hover,
+            &:focus {background-color:$white; border-color:$white; color:$gray1;}
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

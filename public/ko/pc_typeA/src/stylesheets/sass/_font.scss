@@ -1,0 +1,50 @@
+
+/* latin - LG Smart */
+@font-face {
+	font-family: 'LG Smart';
+	font-style: normal;
+	font-weight: 300;
+	src:url(../../fonts/LGSmartLight.woff) format('woff'),
+	url(../../fonts/LGSmartLight.eot) format('eot'),
+	url(../../fonts/LGSmartLight.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'LG Smart';
+	font-style: normal;
+	font-weight: 500;
+	src:url(../../fonts/LGSmartRegular.woff) format('woff'),
+	url(../../fonts/LGSmartRegular.eot) format('eot'),
+	url(../../fonts/LGSmartRegular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'LG Smart';
+	font-style: normal;
+	font-weight: 600;
+	src:url(../../fonts/LGSmartSemiBold.woff) format('woff'),
+	url(../../fonts/LGSmartSemiBold.eot) format('eot'),
+	url(../../fonts/LGSmartSemiBold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'LG Smart';
+	font-style: normal;
+	font-weight: 700;
+	src:url(../../fonts/LGSmartBold.woff) format('woff'),
+	url(../../fonts/LGSmartBold.eot) format('eot'),
+	url(../../fonts/LGSmartBold.ttf) format('truetype');
+}
+
+/* latin - dinbol */
+@font-face {
+	font-family: 'dinbol';
+	font-style: normal;
+	font-weight: 500;
+	src:url(../../fonts/dinbol.woff) format('woff'),
+	url(../../fonts/dinbol.eot) format('eot'),
+	url(../../fonts/dinbol.ttf) format('truetype');
+}
+
+/* latin - Roboto */
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');

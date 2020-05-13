@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+/* main */
+#mainVisual {
+    width:100%; height:820px; display:table; position:relative; overflow:hidden;
+    &:after {width:100%; height:100%; display:block; content:""; position:absolute; top:0; left:0; background:url(../../images/main/main_visual_dimmed.png) 50% 50% no-repeat; z-index:-1;}
+    .img_wrap {
+        width:100%; height:100%; background-image:url(../../images/main/main_visual.jpg); position:absolute; top:0; left:0; z-index:-1;
+        @include backgroundSolt(50%, 0);
+        @include scale(1);
+        @include opacity(0);
+    }
+    .txt_wrap {
+        width:100%; text-align:center; vertical-align:middle; display:table-cell;
+        h3 {
+            font-size:94px; color:$white; text-shadow:0 6px 20px #000; letter-spacing:2px;
+            span {font-size:94px; font-weight:$light;}
+        }
+        a {
+            display:inline-block; padding:15px 80px; background-color:$white; color:$gray1; margin:25px 0 0; font-size:26px; font-weight:$semibold;
+            @include borderRadius(5px);
+            @include boxSizing;
+            @include transition(transform, .5s);
+            @include boxShadow(0 10px 70px 0 $black);
+            &:hover,
+            &:focus {@include scale(.97)}
+        }
+    }
+    #discoverBtn {bottom:30px;}
+}
+
+.main_container {
+    padding:20px 20px 20px; text-align:center;
+    .category_wrap {
+        @extend %clearfix;
+        article {
+            width:calc(50% - 10px); height:0; padding:0 0 30.5%; position:relative; margin:0 0 20px; overflow:hidden;
+            &:before {
+                width:100%; height:100%; display:block; content:""; position:absolute; top:0; left:0;
+                @include backgroundSoltC;
+                @include transition(background-position, .5s);
+            }
+            &:nth-of-type(odd) {float:left;}
+            &:nth-of-type(even) {float:right;}
+            &:nth-of-type(1):before {background-image:url(../../images/main/depth_img01.jpg);}
+            &:nth-of-type(2):before {background-image:url(../../images/main/depth_img02.jpg);}
+            &:nth-of-type(3):before {background-image:url(../../images/main/depth_img03.jpg);}
+            &:nth-of-type(4):before {background-image:url(../../images/main/depth_img04.jpg);}
+            &:nth-of-type(5):before {background-image:url(../../images/main/depth_img05.jpg);}
+            &:nth-of-type(6):before {background-image:url(../../images/main/depth_img06.jpg);}
+            &:hover,
+            &:focus {
+                &:before {-ms-background-position-y:em(-10); background-position-y:em(-10);}
+                a {
+                    &:after {
+                        @include translate(0, em(-10));
+                        @include opacity(.4);
+                    }
+                    .txt_wrap {
+                        h1 {@include translate(0, em(-10))}
+                        strong {
+                            @include translate(-50%, em(-10));
+                            &:before {width:100%;}
+                            &:after {display:none;}
+                        }
+                    }
+                }
+            }
+        }
+        a {
+            color:$white;
+            &:after {
+                width:100%; height:100%; display:block; content:""; position:absolute; background-color:$black;
+                @include opacity(0);
+                @include transition(all, .5s);
+            }
+            .txt_wrap {
+                width:100%; height:100%; position:absolute; top:0; overflow:hidden; z-index:10;
+                h1 {
+                    width:100%; font-size:em(90); font-weight:$semibold; letter-spacing:11px; position:absolute; bottom:em(100);
+                    @include transition(transform, 2s);
+                }
+                strong {
+                    font-size:em(30); position:absolute; letter-spacing:3px; padding:0 0 em(4); bottom:em(55); overflow:hidden; font-weight:$semibold;
+                    @include translate(-50%, 0);
+                    @include transition(transform, 2.5s);
+                    &:before {
+                        width:0; height:em(3); display:block; content:""; position:absolute; bottom:0; left:0; background-color:$white;
+                        @include transition(width, .4s);
+                    }
+                    &:after {width:100%; height:em(3); display:block; content:""; position:absolute; bottom:0; left:0; background-color:$white;}
+                    span {display:inline-block;}
+                }
+                &.txt_small {
+                    h1 {font-size:em(46); line-height:em(54); font-weight:$bold; letter-spacing:1px;}
+                    strong {font-size:em(26); letter-spacing:0; font-weight:$semibold;}
+                }
+            }
+        }
+    }
+    .full_contents {
+        width:100%; height:0; padding:0 0 33%; position:relative; overflow:hidden;
+        &:before {
+            width:100%; height:100%; display:block; content:""; position:absolute; top:0; left:0; background-image:url(../../images/main/depth_img07.jpg);
+            @include backgroundSoltC;
+            @include transition(transform, .4s);
+        }
+        &:hover,
+        &:focus {
+            a {
+                color:$white;
+                &:after {@include opacity(.4)}
+                .txt_wrap {
+                    strong {
+                        &:before {width:100%;}
+                        &:after {display:none;}
+                    }
+                }
+            }
+        }
+        a {
+            width:100%; height:100%; display:block; position:absolute; top:0; left:0; color:$gray1;
+            &:after {
+                width:100%; height:100%; display:block; content:""; position:absolute; background-color:$black;
+                @include opacity(0);
+                @include transition(opacity, .8s);
+            }
+            .txt_wrap {
+                width:100%; position:absolute; top:em(70); padding:0 0 em(5); overflow:hidden; z-index:10;
+                h1 {
+                    font-size:em(60);
+                    @include transition(color, .4s);
+                }
+                strong {
+                    font-size:em(26); position:relative; padding:em(15) 0 em(5); font-weight:$semibold; display:inline-block;
+                    @include transition(color, .4s);
+                    &:before {
+                        width:0; height:em(4); display:block; content:""; position:absolute; bottom:0; left:0; background-color:$white;
+                        @include transition(all, .4s);
+                    }
+                    &:after {width:100%; height:em(4); display:block; content:""; position:absolute; bottom:0; left:0; background-color:$gray1;}
+                    span {display:inline-block;}
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
