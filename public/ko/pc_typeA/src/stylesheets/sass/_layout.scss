@@ -1,7 +1,12 @@
 @charset "UTF-8";
 #cookieAllPc {
-    width:100%; height:50px; min-width:1280px; position:absolute; top:0; left:0; z-index:201; overflow:hidden;
+    width:100%; height:50px; min-width:1280px; position:absolute; top:0; left:0; z-index:500; overflow:hidden;
     .change_wrap {width:100%; height:50px; background-color:$gray5; text-align:center; position:absolute; top:0; z-index:1; overflow:hidden;}
+    &.cookie_open {
+        position:fixed;
+        .cookie_top,
+        .cookie_bottom {display:block;}
+    }
     #cookieChange {
         display:inline-block; position:relative; padding:0 40px 0 20px; line-height:50px; color:$gray2; font-weight:$bold;
         &:after {
@@ -12,7 +17,7 @@
         }
     }
     .cookie_top {
-        background-color:#ebeced; padding:0 50px; position:relative; display:none;
+        background-color:#ebeced; padding:0 50px; position:relative; display:none; z-index:100;
         .top_box {
             width:1280px; padding:25px 0; margin:0 auto;
             @extend %clearfix;
@@ -109,44 +114,22 @@
         &:hover {background-color:$red;}
     }
 }
-html, body { max-width:100%;}
-html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
 
 /* layout */
 /* header */
 #header {
-    width:100%; height:70px; min-width:1280px; background-color:transparent; padding:0 68px; position:absolute; top:50px; z-index:200;
+    width:100%; height:60px; min-width:1280px; background-color:$black; position:absolute; top:50px; z-index:200; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#5a595e;
     @include boxSizing;
     @include transition(background-color, .2s);
-    &:after {
-        width:100%; height:1px; display:block; content:""; position:absolute; bottom:0; left:0; background-color:$white;
-        @include opacity(.4);
-    }
     &.fixed {
-        background-color:$white; top:0; position:fixed;
-        &:after {background-color:$gray3;}
-        .header_wrap {
-            #logo a {background-image:url(../../images/layout/logo_fix.png);}
-            #allNav {
-                button {
-                    &:before,
-                    &:after,
-                    span {background-color:$gray1;}
-                }
-            }
-            .header_buy {
-                color:$gray1;
-                &:before {background-image:url(../../images/layout/buy_icon_fix.png);}
-                &:after {background-color:$gray1;}
-            }
-        }
+        top:0; position:fixed;
     }
     .header_wrap {
         position:relative; text-align:center;
         #logo {
-            padding:21px 0 0; position:relative;
+            padding:18px 0 0; position:relative;
             a {
-                width:232px; height:27px; display:inline-block; background-image:url(../../images/layout/logo.png); text-indent:-9999px;
+                width:206px; height:26px; display:inline-block; background-image:url(../../images/layout/logo.png); text-indent:-9999px;
                 @include backgroundSolt;
                 @include transition(background-image, .3s);
             }
@@ -154,36 +137,51 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
         #allNav {
             &.nav_open {
                 button {
-                    &:before {
-                        background-color:$gray1; top:10px;
-                        @include rotate(45);
+                    border-right-color:$white;
+                    i {
+                        &:before {
+                            background-color:$gray1; top:3px;
+                            @include rotate(45);
+                        }
+                        &:after {
+                            background-color:$gray1; top:3px;
+                            @include rotate(-45);
+                        }
                     }
-                    &:after {
-                        background-color:$gray1; top:10px;
-                        @include rotate(-45);
+                    &:hover {
+                        color:$white;
+                        i {
+                            &:before,
+                            &:after {background-color:$black;}
+                        }
                     }
-                    span {width:0 !important; background-color:$gray1;}
                 }
             }
             button {
-                width:25px; height:25px; position:absolute; top:26px; left:0; text-indent:-9999px; z-index:30;
-                &:hover,
-                &:focus {
-                    span {width:70%;}
+                height:59px; position:absolute; top:0; left:0; padding:0 30px; z-index:30; color:$white; font-size:15px; font-weight:$bold;
+                border-right-width:1px; border-right-style:solid; border-right-color:#5a595e;
+                @include transition;
+                i {
+                    width:15px; height:8px; position:absolute; display:block; top:26px;
+                    &:before,
+                    &:after {
+                        width:100%; height:2px; display:block; content:""; background-color:$white; position:absolute; left:0;
+                        @include transition;
+                    }
+                    &:before {top:0;}
+                    &:after {bottom:0;}
                 }
-                &:before,
-                &:after,
-                span {
-                    width:100%; height:3px; display:block; content:""; background-color:$white; position:absolute; left:0;
-                    @include transition;
+                span {padding:0 0 0 30px; display:block;}
+                &:hover {
+                    background-color:$white; color:$black;
+                    i {
+                        &:before,
+                        &:after {background-color:$black;}
+                    }
                 }
-                &:before {top:0;}
-                &:after {top:16px;}
-                span {top:8px;}
             }
             nav {
-                height:100%;
-                width:50%; position:fixed; background-color:$white; left:0; top:0; display:table; text-align:center; z-index:20;
+                width:50%; height:100%; position:fixed; background-color:$white; left:0; top:0; display:table; text-align:center; z-index:20;
                 @include translate(-100%, 0);
                 h2 {text-indent:-9999px;}
                 .wrap {
@@ -206,7 +204,7 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
             .link_box {
                 height:15%; clear:both; text-align:center; position:relative;
                 ul {
-                    display:inline-block; color:#646668; padding:0 30px 0 0;
+                    display:inline-block; color:#646668;
                     &:after {content:""; display:block; clear:both;}
                     li {
                         width:155px; float:left; position:relative;
@@ -224,156 +222,20 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
         }
     }
     .header_buy {
-        height:27px; line-height:27px; position:absolute; top:20px; right:0; z-index:1; font-weight:700; font-size:16px; color:$white; letter-spacing:1.2px;
-        @include transition(color, .2s);
-        &:before {
-            width:33px; height:27px; display:block; content:""; position:absolute; left:-42px; top:0; background-image:url(../../images/layout/buy_icon.png);
-            @include transition(background-image, .2s);
-        }
-        &:after {
-            width:0; height:1px; display:block; content:""; position:absolute; bottom:3px; left:0; background-color:$white;
-            @include transition(width, .2s);
-        }
+        height:59px; line-height:59px; position:absolute; top:0; right:0; z-index:1; font-weight:700; font-size:15px; color:$white; letter-spacing:1.2px;
+        border-left-width:1px; border-left-style:solid; border-left-color:#5a595e; padding:0 37px 0 73px; background-image:url(../../images/layout/header_buy.png);
+        @include backgroundSolt(37px, 50%);
+        @include transition;
         &:hover,
         &:focus {
-            &:after {width:100%;}
+            background-color:$white; color:$black; background-image:url(../../images/layout/header_buy_black.png);
         }
     }
 }
 
 //footer
 #footer {
-    padding:23px 130px; position:relative; border-top:1px solid $gray4; font-weight:$regular;
-    .footer_wrap {height:29px; line-height:29px;}
-    p.copyright {width:100%; font-size:13px; text-align:center; position:absolute; left:0; color:$gray2;}
-    .etc_link {
-        float:left; font-size:12px; position:relative; z-index:1;
-        @extend %clearfix;
-        li {
-            float:left; margin:0 0 0 40px; position:relative;
-            &:first-child {
-                margin:0;
-                &:before {display:none;}
-            }
-            &:before {width:1px; height:8px; display:block; content:""; position:absolute; top:10px; left:-20px; background-color:$gray2;}
-        }
-        a {
-            position:relative; color:$gray2;
-            &:after {
-                width:100%; height:1px; display:block; content:""; position:absolute; left:0; bottom:-1px; background-color:$gray2;
-                @include scaleX(0);
-                @include transition(transform, .2s);
-            }
-            &:hover:after {@include scaleX(1)}
-        }
-    }
-    .share_wrap {
-        float:right; position:relative; z-index:1;
-        @extend %clearfix;
-        button {
-            height:29px; float:left; padding:0 22px 0 40px; background-image:url(../../images/layout/share_icon.png); font-size:12px;
-            @include backgroundSolt(15px, 50%);
-            @include borderSet(1px, solid, $gray2);
-            @include borderRadius(29px);
-            @include transition;
-            &:hover,
-            &:focus {background-color:$gray1; color:$white; border-color:$gray1; background-image:url(../../images/layout/share_icon_white.png);}
-        }
-        ol {
-            float:left; text-indent:-9999px;
-            @extend %clearfix;
-        }
-        li {
-            padding:0 0 0 15px; float:left;
-            &:nth-of-type(1) a {
-                background-image:url(../../images/layout/face_icon.png);
-                &:hover {background-image:url(../../images/layout/face_icon_white.png);}
-            }
-            &:nth-of-type(2) a {
-                background-image:url(../../images/layout/twitter_icon.png);
-                &:hover {background-image:url(../../images/layout/twitter_icon_white.png);}
-            }
-            &:nth-of-type(3) a {
-                background-image:url(../../images/layout/youtube_icon.png);
-                &:hover {background-image:url(../../images/layout/youtube_icon_white.png);}
-            }
-        }
-        a {
-            width:28px; height:28px; display:block;
-            @include backgroundSolt;
-            @include borderSet(1px, solid, $gray2);
-            @include borderRadius(29px);
-            @include transition;
-            &:hover,
-            &:focus {background-color:$gray1; border-color:$gray1;}
-        }
-    }
-    &.black_thema {
-        background-color:$black; border-top-color:#101010;
-        &:after {width:100%; height:em(72); display:block; content:""; background-color:$black; position:absolute; top:100%; left:0;}
-        p.copyright {color:$gray4;}
-        .etc_link {
-            a {
-                color:$gray4;
-                &:after {background-color:$white;}
-            }
-        }
-        .share_wrap {
-            button {
-                color:#f7f7f7; border-color:#f7f7f7; background-image:url(../../images/layout/share_icon_black.png);
-                &:hover {background-color:$white; border-color:$white; color:$gray2; background-image:url(../../images/layout/share_icon.png);}
-            }
-            li {
-                &:nth-of-type(1) a {
-                    background-image:url(../../images/layout/face_icon_black.png);
-                    &:hover {background-image:url(../../images/layout/face_icon.png);}
-                }
-                &:nth-of-type(2) a {
-                    background-image:url(../../images/layout/twitter_icon_black.png);
-                    &:hover {background-image:url(../../images/layout/twitter_icon.png);}
-                }
-                &:nth-of-type(3) a {
-                    background-image:url(../../images/layout/youtube_icon_black.png);
-                    &:hover {background-image:url(../../images/layout/youtube_icon.png);}
-                }
-            }
-            a {
-                border-color:#f7f7f7;
-                &:hover {background-color:$white; border-color:$white;}
-            }
-        }
-    }
-}
 
-//footer fixed
-#footerLink {
-    width:100%; height:em(48); position:fixed; bottom:0; text-align:center; z-index:150; padding:em(12) 0; border-top:1px solid $gray4; background-color:$white;
-    ol {
-        padding:0 68px; display:inline-block; font-size:em(23); font-weight:$regular;
-        @extend %clearfix;
-    }
-    li {
-        width:320px; float:left; margin:0 0 0 20px;
-        &:first-child {margin:0;}
-        &.lineup_footer {display:none;}
-    }
-    a {
-        width:100%; height:em(48); display:block; line-height:em(44); color:$gray1;
-        @include borderRadius(40px);
-        @include borderSet(1px, solid, #666);
-        @include transition;
-        @include boxSizing;
-        &:hover,
-        &:focus {background-color:$gray1; border-color:$gray1; color:$white;}
-    }
-    &.black_thema {
-        background-color:rgba(0,0,0,0.95); border-top-color:#101010;
-        a {
-            color:$white; border-color:#666;
-            &:hover,
-            &:focus {background-color:$white; border-color:$white; color:$gray1;}
-        }
-    }
 }
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" @@gxHtml>
+<html lang="en">
 <head>
     <title>Powered by SELF-LIT PiXELS</title>
     <meta charset="utf-8">
@@ -17,9 +17,16 @@
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script>
         var setCookie = function(name, value, exp) {
+            var lh = location.host;
+            var mydomain = '.lg.com';
+            if(lh.indexOf('lge.com')>=0) {
+                mydomain = '.lge.com';
+            } else if(lh.indexOf('localhost')>=0) {
+                mydomain = 'localhost';
+            }
             var date = new Date();
             date.setTime(date.getTime() + exp*24*60*60*1000);
-            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/' + ';domain=' + mydomain;
         };
 
         var getCookie = function(name) {
@@ -61,7 +68,6 @@
             </p>
             <div class="accept_wrap">
                 <button type="button" id="allAgreeBtn">ACCEPT ALL COOKIES</button>
-                <button type="button" id="detailOpenBtn">SAVE PREFERENCES</button>
             </div>
         </div>
         <button type="button" id="cookieClose">close btn</button>
@@ -114,145 +120,77 @@
             <button type="button" id="cookieSave">SAVE</button>
         </div>
     </div>
+    <div id="cookieDimmed" class="dimmed"></div>
 </div>
-<div id="wrap" class='main_footer_none'>
+<div id="wrap">
     <!-- header-->
-    <header id="header" @@headerFixed>
+    <header id="header">
         <div class="header_wrap">
-            <h1 id="logo"><a href="../main/main.jsp" title="LG OLED AI ThinQ Logo"></a></h1>
+            <h1 id="logo"><a href="../main/main.html" title=""></a></h1>
             <div id="allNav">
-                <button type="button" id="allMenuBtn" title="Find shortcut menu"><span>all navigation open/close</span></button>
+                <button type="button" id="allMenuBtn" title=""><i></i><span>MENU</span></button>
                 <nav>
                     <h2 class="hidden-txt">all navigation</h2>
                     <div class="wrap">
                         <ul>
-                            <li><a href="../sub/cinema.jsp" title="Learn more about LG OLED Cinema">LG OLED Cinema</a></li>
-                            <li><a href="../sub/gaming.jsp" title="Learn more about LG OLED Gaming">LG OLED Gaming</a></li>
-                            <li><a href="../sub/sports.jsp" title="Learn more about LG OLED Sport">LG OLED Sport</a></li>
-                            <li><a href="../sub/life.jsp" title="Learn more about LG OLED Lifestyle">LG OLED Lifestyle</a></li>
-                            <li><a href="../sub/core.jsp" title="Learn more about LG OLED Technology">LG OLED Technology</a></li>
-                            <li><a href="" title="Learn more about LG OLED ThinQ AI">LG OLED ThinQ AI</a></li>
-                            <!--<li><a href="" title="Learn more about LG OLED Gallery Design">LG OLED Gallery Design</a></li>-->
-                            <li><a href="../sub/lineup.jsp" title="Learn more about LG OLED Line up">LG OLED Line up</a></li>
+                            <li><a href="../sub/meridian.jsp" title="">LG Meridian</a></li>
+                            <li><a href="../sub/pl.jsp" title="">LG PL</a></li>
+                            <li><a href="../sub/pn.jsp" title="">LG PN</a></li>
+                            <li><a href="../sub/jellybean.jsp" title="">LG Jellybean</a></li>
                         </ul>
                     </div>
                     <div class="link_box">
                         <ul>
                             <li><a href="#">SEE OLED TV</a></li>
-                            <li><a href="#">BUY NOW</a></li>
+                            <li><a href="#">SHOP NOW</a></li>
                         </ul>
                         <p>ⓒ 2020 LG Electronics.</p>
                     </div>
                 </nav>
                 <div id="navDimmed" class="dimmed"></div>
             </div>
-            <a href="#" class="header_buy" title="Find lineup page">BUY NOW</a>
+            <a href="#" class="header_buy" title="">SHOP NOW</a>
         </div>
     </header>
     <!-- //header-->
 
-    <section id="mainVisual">
-        <div class="img_wrap"></div>
-        <div class="txt_wrap">
-            <h3>
-                <span>The power of</span>
-                SELF-LIT PiXELS
-            </h3>
-            <a href="../sub/core.jsp" title="Explore more about LG OLED self-lit pixels">Explore more</a>
-        </div>
-        <button type="button" id="discoverBtn"><span>DISCOVER MORE</span></button>
-    </section>
+    <div id="meridianTitle">
+        <p>BALANCED & CLEAR SOUND</p>
+        <img src="../../images/main/meridian_logo.png" alt="">
+    </div>
     <!--mainContainer-->
     <div id="container" class="main_container">
-        <div class="category_wrap">
-            <article>
-                <a href="../sub/cinema.jsp" title="Find how SELF-LIT PiXELS make cinema more expressive">
-                    <div class="txt_wrap">
-                        <h1>CINEMA</h1>
-                        <strong><span>WATCH IT</span></strong>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="../sub/gaming.jsp" title="Find how SELF-LIT PiXELS make gaming more responsive">
-                    <div class="txt_wrap">
-                        <h1>GAMING</h1>
-                        <strong><span>PLAY IT</span></strong>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="../sub/sports.jsp" title="Find how SELF-LIT PiXELS make sport more realistic">
-                    <div class="txt_wrap">
-                        <h1>SPORT</h1>
-                        <strong><span>FEEL IT</span></strong>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="../sub/life.jsp" title="Find how SELF-LIT PiXELS make life more artistic">
-                    <div class="txt_wrap">
-                        <h1>LIFESTYLE</h1>
-                        <strong><span>LIVE IT</span></strong>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="../sub/core.jsp" title="Find out more about LG OLED self-lit technology">
-                    <div class="txt_wrap txt_small">
-                        <h1>Why SELF-LIT PiXELS?</h1>
-                        <strong><span>Find out more</span></strong>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="" title="Find out more about LG OLED ThinQ AI">
-                    <div class="txt_wrap txt_small">
-                        <h1>
-                            A Complete Suite of <br>
-                            Smart Technology
-                        </h1>
-                        <strong><span>Find out more</span></strong>
-                    </div>
-                </a>
-            </article>
-        </div>
-        <article class="full_contents">
-            <a href="../sub/lineup.jsp" title="Find out more about 2020 LG OLED TV Lineup">
-                <div class="txt_wrap">
-                    <h1>2020 LG OLED TV Lineup</h1>
-                    <strong><span>Find out more</span></strong>
+        <div id="scenePl">
+            <div class="scene_wrap">
+                <div class="pl_img">
+                    <img src="../../images/main/main_scene01.png" class="pl_img01" alt="">
+                    <img src="../../images/main/main_scene02.png" class="pl_img02" alt="">
+                    <img src="../../images/main/main_scene03.png" class="pl_img03" alt="">
                 </div>
-            </a>
-        </article>
+                <img src="../../images/main/pl_scene_bg.jpg" class="pl_bg" alt="">
+                <div class="pl_txt">
+                    <p class="pl_txt01">NEW LOOK</p>
+                    <p class="pl_txt02">SIMPLY STYLISH</p>
+                    <p class="pl_txt03">The New PL Series</p>
+                </div>
+                <div class="link_wrap">
+                    <ol>
+                        <li><a href="">LEARN MORE</a></li>
+                        <li><a href="">SHOP NOW</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
     </div>
     <!--//mainContainer-->
 
+
+
     <!-- footer -->
     <footer id="footer" >
-        <div class="footer_wrap">
-            <p class="copyright">ⓒ 2020 LG Electronics.</p>
-            <ol class="etc_link">
-                <li><a href="https://www.lg.com/uk/privacy" title="Opens in a new window">PRIVACY</a></li>
-                <li><a href="https://www.lg.com/uk/legal" title="Opens in a new window">LEGAL</a></li>
-            </ol>
-            <div class="share_wrap">
-                <ol>
-                    <li><a href="https://www.facebook.com/LGUK" target="_blank" title="Opens in a new window">facebook</a></li>
-                    <li><a href="https://twitter.com/LGUK" target="_blank" title="Opens in a new window">twitter</a></li>
-                    <li><a href="https://www.youtube.com/user/LGBlogUK" target="_blank" title="Opens in a new window">youtube</a></li>
-                </ol>
-            </div>
-        </div>
+
     </footer>
     <!-- //footer -->
-    <aside id="footerLink" >
-        <ol>
-            <li><a href="../main/main.jsp">Home</a></li>
-            <li ><a href="../sub/lineup.jsp">LG OLED TV Lineup</a></li>
-            <li><a href="">Buy Now</a></li>
-        </ol>
-    </aside>
 </div>
 <script src="../../javascripts/plugin.js"></script>
 <script src="../../javascripts/design_common.js"></script>

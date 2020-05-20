@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" @@gxHtml>
+<html lang="en">
 <head>
     <title>@@pageTitle</title>
     <meta charset="utf-8">
@@ -17,9 +17,16 @@
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script>
         var setCookie = function(name, value, exp) {
+            var lh = location.host;
+            var mydomain = '.lg.com';
+            if(lh.indexOf('lge.com')>=0) {
+                mydomain = '.lge.com';
+            } else if(lh.indexOf('localhost')>=0) {
+                mydomain = 'localhost';
+            }
             var date = new Date();
             date.setTime(date.getTime() + exp*24*60*60*1000);
-            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/' + ';domain=' + mydomain;
         };
 
         var getCookie = function(name) {
@@ -61,7 +68,6 @@
             </p>
             <div class="accept_wrap">
                 <button type="button" id="allAgreeBtn">ACCEPT ALL COOKIES</button>
-                <button type="button" id="detailOpenBtn">SAVE PREFERENCES</button>
             </div>
         </div>
         <button type="button" id="cookieClose">close btn</button>
@@ -114,39 +120,36 @@
             <button type="button" id="cookieSave">SAVE</button>
         </div>
     </div>
+    <div id="cookieDimmed" class="dimmed"></div>
 </div>
-<div id="wrap" @@mainFooterNone>
+<div id="wrap">
     <!-- header-->
-    <header id="header" @@headerFixed>
+    <header id="header">
         <div class="header_wrap">
-            <h1 id="logo"><a href="../main/main.jsp" title="LG OLED AI ThinQ Logo"></a></h1>
+            <h1 id="logo"><a href="../main/main.html" title=""></a></h1>
             <div id="allNav">
-                <button type="button" id="allMenuBtn" title="Find shortcut menu"><span>all navigation open/close</span></button>
+                <button type="button" id="allMenuBtn" title=""><i></i><span>MENU</span></button>
                 <nav>
                     <h2 class="hidden-txt">all navigation</h2>
                     <div class="wrap">
                         <ul>
-                            <li><a href="../sub/cinema.jsp" title="Learn more about LG OLED Cinema">LG OLED Cinema</a></li>
-                            <li><a href="../sub/gaming.jsp" title="Learn more about LG OLED Gaming">LG OLED Gaming</a></li>
-                            <li><a href="../sub/sports.jsp" title="Learn more about LG OLED Sport">LG OLED Sport</a></li>
-                            <li><a href="../sub/life.jsp" title="Learn more about LG OLED Lifestyle">LG OLED Lifestyle</a></li>
-                            <li><a href="../sub/core.jsp" title="Learn more about LG OLED Technology">LG OLED Technology</a></li>
-                            <li><a href="" title="Learn more about LG OLED ThinQ AI">LG OLED ThinQ AI</a></li>
-                            <!--<li><a href="" title="Learn more about LG OLED Gallery Design">LG OLED Gallery Design</a></li>-->
-                            <li><a href="../sub/lineup.jsp" title="Learn more about LG OLED Line up">LG OLED Line up</a></li>
+                            <li><a href="../sub/meridian.jsp" title="">LG Meridian</a></li>
+                            <li><a href="../sub/pl.jsp" title="">LG PL</a></li>
+                            <li><a href="../sub/pn.jsp" title="">LG PN</a></li>
+                            <li><a href="../sub/jellybean.jsp" title="">LG Jellybean</a></li>
                         </ul>
                     </div>
                     <div class="link_box">
                         <ul>
                             <li><a href="#">SEE OLED TV</a></li>
-                            <li><a href="#">BUY NOW</a></li>
+                            <li><a href="#">SHOP NOW</a></li>
                         </ul>
                         <p>ⓒ 2020 LG Electronics.</p>
                     </div>
                 </nav>
                 <div id="navDimmed" class="dimmed"></div>
             </div>
-            <a href="#" class="header_buy" title="Find lineup page">BUY NOW</a>
+            <a href="#" class="header_buy" title="">SHOP NOW</a>
         </div>
     </header>
     <!-- //header-->
