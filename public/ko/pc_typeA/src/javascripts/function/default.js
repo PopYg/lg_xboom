@@ -20,8 +20,11 @@ $window.load(function () {
     $(window).scroll(function () {
         winSc = $(this).scrollTop();
     });
-
-    main();
     layout();
+    main();
+    pn();
+    pl();
+    meridian();
+    jellybean();
     scrollEvent();
 });

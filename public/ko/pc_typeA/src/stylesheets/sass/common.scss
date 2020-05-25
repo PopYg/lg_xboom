@@ -3,6 +3,8 @@
 @import "./_common/base";
 @import "./layout";
 @import "./main";
+@import "./pl";
+@import "./pn";
 
 /* common css */
 
@@ -32,7 +34,7 @@ html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
 legend {width:0; height:0; overflow:hidden; display:inline-block; text-indent:-9999px; line-height:1px; position:absolute;}
 
 #wrap {position:relative;}
-#container {background-color:$black; position:relative; top:50px;}
+#container {position:relative;}
 
 //스크롤섹션 애니메이션
 .js-scr-box {
