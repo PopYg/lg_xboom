@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Powered by SELF-LIT PiXELS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="title" content='SELF-LIT PiXELS - LG OLED | LG OLED TV'>
+    <meta name="Description" content='Find a new level of TV experience powered by LG OLED SELF-LIT PiXELS'>
+    <meta name="Keywords" content='lg oled tv, oled tv, oled, lg signature oled tv, lg signature, gallery tv, rollable tv, wallpaper tv, premium oled tv, lg premium tv, lg 4k television, lg 4k tv, lg 8k television, lg 8k tv, lg oled ai tv, lg ai tv, ai tv, artificial intelligence tv, ai tv series, ai tv lg, voice command, hands free voice control, smart tv, thinq, lg thinq, thinq ai, lg thinq tv,  best LG OLED, LG OLED TVs, OLED cinema, lg oled cinema, lg oled gaming, tv game, oled game, lg oled sport, oled sport, sport tv, oled lifestyle, oled design, self-lit, self-lighting, self-lit oled, self-lit tv, self-lit lg oled'>
+    <meta name="Author" content="LG OLED AI">
+    <meta name="robots" content="ALL">
+    <link rel="icon" type="image/png" href="../../images/common/favicon.ico" />
+    <link rel="stylesheet" href="../../stylesheets/css/common.css">
+    <script src="../../javascripts/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+        var setCookie = function(name, value, exp) {
+            var lh = location.host;
+            var mydomain = '.lg.com';
+            if(lh.indexOf('lge.com')>=0) {
+                mydomain = '.lge.com';
+            } else if(lh.indexOf('localhost')>=0) {
+                mydomain = 'localhost';
+            }
+            var date = new Date();
+            date.setTime(date.getTime() + exp*24*60*60*1000);
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/' + ';domain=' + mydomain;
+        };
+
+        var getCookie = function(name) {
+            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value? value[2] : null;
+        };
+        if(getCookie("analysisCookie") === 'Y') {
+            // adobe
+            var d = document,
+                s = d.createElement('script'),
+                h = d.head || d.getElementsByTagName("head")[0],
+                as = {
+                    "src": "//assets.adobedtm.com/322f63b58a72/8a275ffd7aa6/launch-f8ed4c3e94f9.min.js",
+                    "async": "async"
+                };
+            for (var i in as) {
+                s.setAttribute(i, as[i]);
+            }
+            h.appendChild(s);
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-X5WZ');
+        }
+    </script>
+</head>
+<body>
+<div id="cookieAllPc">
+    <div class="change_wrap">
+        <button type="button" id="cookieChange">Change Cookies Settings</button>
+    </div>
+    <div class="cookie_top">
+        <div class="top_box">
+            <p>
+                We use strictly necessary cookies for this website to function, we do have other optional cookies,
+                which you can enable and descriptions of these are available beside the opt in buttons.
+                To find out further information on our cookies, <a href="">please see our Privacy and Cookie Policy.</a>
+            </p>
+            <div class="accept_wrap">
+                <button type="button" id="allAgreeBtn">ACCEPT ALL COOKIES</button>
+            </div>
+        </div>
+        <button type="button" id="cookieClose">close btn</button>
+    </div>
+    <div class="cookie_bottom">
+        <div class="bottom_box">
+            <p>You will find below the different types of cookies used on LG.com. If you wish to allow any of these cookies, click to opt in.</p>
+            <ol>
+                <li>
+                    <dl>
+                        <dt><span>Functional Cookies</span></dt>
+                        <dd>Enable for useful website features like product reviews, the where to buy function, recently viewed items and search data.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="functionalAgree">
+                        <label for="functionalAgree">Functional Cookies</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Social media</span></dt>
+                        <dd>Connect with your social channels to share LG Technology with friends for example on Facebook and Twitter.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="socialAgree">
+                        <label for="socialAgree">Social media</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Website analysis</span></dt>
+                        <dd>Help us to understand your behaviour on our website so we can improve the content and personalise your experience on LG.COM</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="analysisAgree">
+                        <label for="analysisAgree">Website analysis</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Advertising and <br>targeting cookies</span></dt>
+                        <dd>Allow us to gather information about how you interact with our advertising and our website.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="advertisingAgree">
+                        <label for="advertisingAgree">Advertising and targeting cookies</label>
+                    </div>
+                </li>
+            </ol>
+            <button type="button" id="cookieSave">SAVE</button>
+        </div>
+    </div>
+    <div id="cookieDimmed" class="dimmed"></div>
+</div>
+<div id="wrap">
+    <!-- header-->
+    <header id="header">
+        <div class="header_wrap">
+            <h1 id="logo"><a href="../main/main.html" title=""></a></h1>
+            <div id="allNav">
+                <button type="button" id="allMenuBtn" title=""><i></i><span>MENU</span></button>
+                <nav>
+                    <h2 class="hidden-txt">all navigation</h2>
+                    <div class="wrap">
+                        <ul>
+                            <li><a href="../sub/meridian.jsp" title="">LG Meridian</a></li>
+                            <li><a href="../sub/pl.jsp" title="">LG PL</a></li>
+                            <li><a href="../sub/pn.jsp" title="">LG PN</a></li>
+                            <li><a href="../sub/jellybean.jsp" title="">LG Jellybean</a></li>
+                        </ul>
+                    </div>
+                    <div class="link_box">
+                        <ul>
+                            <li><a href="#">SEE OLED TV</a></li>
+                            <li><a href="#">SHOP NOW</a></li>
+                        </ul>
+                        <p>ⓒ 2020 LG Electronics.</p>
+                    </div>
+                </nav>
+                <div id="navDimmed" class="dimmed"></div>
+            </div>
+            <a href="#" class="header_buy" title="">SHOP NOW</a>
+        </div>
+    </header>
+    <!-- //header-->
+
+    <!--plContainer-->
+    <section id="container" class="pl_container">
+
+        <!--plSeries scene-->
+        <div id="plSeries">
+            <div class="scene01">
+                <div class="pl_img">
+                    <img src="../../images/pl/pl_img01.jpg" class="pl_img01" alt="">
+                    <img src="../../images/pl/pl_img02.jpg" class="pl_img02" alt="">
+                </div>
+                <div class="pl_txt">
+                    <h3>PL SERIES</h3>
+                    <p>A New Look for Balanced Sound</p>
+                </div>
+            </div>
+            <div class="scene02">
+                <div class="pl_img">
+                    <img src="../../images/pl/pl_img03.jpg" class="pl_img03" alt="">
+                </div>
+                <div class="pl_txt">
+                    <h4>
+                        Meridian <br>
+                        Technology
+                    </h4>
+                    <div class="txt_wrap">
+                        <p>
+                            The collaboration with Meridian continues.<br>
+                            Enjoy premium quality sound, deep bass,<br>
+                            and rich tones every time you press play.
+                        </p>
+                        <a href="">DISCOVER MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scene03">
+                <div class="pl_img">
+                    <img src="../../images/pl/pl_img04.png" class="pl_img04" alt="">
+                    <img src="../../images/pl/pl_img05.png" class="pl_img05" alt="">
+                    <div class="boost_bg">
+                        <img src="../../images/pl/pl_bg01.jpg" alt="">
+                        <img src="../../images/pl/pl_bg02.jpg" alt="">
+                        <img src="../../images/pl/pl_bg03.jpg" alt="">
+                        <img src="../../images/pl/pl_bg04.jpg" alt="">
+                    </div>
+                </div>
+                <div class="pl_txt">
+                    <h4>SOUND BOOST</h4>
+                    <p>
+                        Press SOUND BOOST to increase <br>
+                        the sound power, widen the sound field,<br>
+                        and inject some life into your music.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--//plSeries scene-->
+
+        <!--dual bass scene-->
+        <div id="dualBass">
+            <img src="../../images/pl/video_dimmed.png" class="video_dimmed01" alt="">
+            <img src="../../images/pl/video_dimmed_white.png" class="video_dimmed02" alt="">
+            <div class="scene01">
+                <div class="video_wrap">
+                    <video class="video_black" preload="auto" loop autoplay muted>
+                        <source src="../../datafile/video_black.mp4" type="video/mp4">
+                    </video>
+                    <video class="video_white" preload="auto" loop autoplay muted>
+                        <source src="../../datafile/video_white.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="txt_wrap">
+                    <div class="txt01">
+                        <h3>Multi Color Lighting</h3>
+                        <p>
+                            Colorful LED lights flash in sync with the beat <br>
+                            to add a bit of extra mood to your music.
+                        </p>
+                    </div>
+                    <div class="txt02">
+                        <h3>Dual Action Bass</h3>
+                        <p>
+                            See the bass in action as the woofers <br>
+                            vibrate with party-starting beats. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//dual bass scene-->
+
+        <!--goSound-->
+        <div id="goSound">
+            <h3>
+                LG XBOOM Go Sound <br>
+                Impresses the Experts
+            </h3>
+            <div class="slider_wrap">
+                <ul class="img_wrap">
+                    <li><img src="../../images/pl/go_sound_img01.jpg" alt=""></li>
+                    <li><img src="../../images/pl/go_sound_img01.jpg" alt=""></li>
+                    <li><img src="../../images/pl/go_sound_img01.jpg" alt=""></li>
+                </ul>
+                <div class="slider_txt">
+                    <ul class="txt_wrap">
+                        <li>
+                            <p class="copy_txt">
+                                “I feel like it might make the sound better <br>
+                                in comparison to others that we’ve seen<br>
+                                just because of the way they focused their<br>
+                                passive radiators. It’s a little bit different<br>
+                                from what we’ve seen and from listening to<br>
+                                them right in here they do sound pretty<br>
+                                awesome.”
+                            </p>
+                            <h4>DLX Willington 1</h4>
+                            <p class="name_txt">Tech YouTuber</p>
+                        </li>
+                        <li>
+                            <p class="copy_txt">
+                                “I feel like it might make the sound better <br>
+                                in comparison to others that we’ve seen<br>
+                                just because of the way they focused their<br>
+                                passive radiators. It’s a little bit different<br>
+                                from what we’ve seen and from listening to<br>
+                                them right in here they do sound pretty<br>
+                                awesome.”
+                            </p>
+                            <h4>DLX Willington 2</h4>
+                            <p class="name_txt">Tech YouTuber</p>
+                        </li>
+                        <li>
+                            <p class="copy_txt">
+                                “I feel like it might make the sound better <br>
+                                in comparison to others that we’ve seen<br>
+                                just because of the way they focused their<br>
+                                passive radiators. It’s a little bit different<br>
+                                from what we’ve seen and from listening to<br>
+                                them right in here they do sound pretty<br>
+                                awesome.”
+                            </p>
+                            <h4>DLX Willington 3</h4>
+                            <p class="name_txt">Tech YouTuber</p>
+                        </li>
+                    </ul>
+                    <div class="nav_btn">
+                        <button type="button" class="prev_btn">prev</button>
+                        <button type="button" class="next_btn">next</button>
+                    </div>
+                </div>
+                <div class="indi_btn"></div>
+            </div>
+            <div class="new_look">
+                <img src="../../images/pl/go_sound_img02.jpg" alt="">
+                <div class="txt_wrap">
+                    <p>
+                        A New Look <br>
+                        for Balanced Sound
+                    </p>
+                    <img src="../../images/pl/go_sound_logo01.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!--//goSound-->
+
+        <!--simply scene-->
+        <div id="simply">
+            <div class="txt_wrap">
+                <h3>Simply Stylish</h3>
+                <p>
+                    A sleek rounded design with a <br>
+                    rubberized surface makes the<br>
+                    LG Bluetooth speaker easy to hold<br>
+                    in your hand. The side woofers light<br>
+                    up to the beat of your track.
+                </p>
+            </div>
+            <div class="img_wrap">
+                <img src="../../images/pl/simply_img01.jpg" alt="">
+                <img src="../../images/pl/simply_img02.jpg" alt="">
+                <img src="../../images/pl/simply_img03.jpg" alt="">
+            </div>
+        </div>
+        <!--//simply scene-->
+        <div style="height: 2000px;"></div>
+
+    </section>
+    <!--//plContainer-->
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="footer_wrap">
+            <ol class="etc_link">
+                <li><a href="https://www.lg.com/uk/privacy" title="Opens in a new window">PRIVACY</a></li>
+                <li><a href="https://www.lg.com/uk/legal" title="Opens in a new window">LEGAL</a></li>
+            </ol>
+            <p class="copyright">ⓒ 2020 LG Electronics.</p>
+            <div class="share_wrap">
+                <ol>
+                    <li><a href="https://www.facebook.com/LGUK" target="_blank" title="Opens in a new window">facebook</a></li>
+                    <li><a href="https://twitter.com/LGUK" target="_blank" title="Opens in a new window">twitter</a></li>
+                    <li><a href="https://www.youtube.com/user/LGBlogUK" target="_blank" title="Opens in a new window">youtube</a></li>
+                </ol>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+</div>
+<script src="../../javascripts/plugin.js"></script>
+<script src="../../javascripts/design_common.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

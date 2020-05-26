@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Powered by SELF-LIT PiXELS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="title" content='SELF-LIT PiXELS - LG OLED | LG OLED TV'>
+    <meta name="Description" content='Find a new level of TV experience powered by LG OLED SELF-LIT PiXELS'>
+    <meta name="Keywords" content='lg oled tv, oled tv, oled, lg signature oled tv, lg signature, gallery tv, rollable tv, wallpaper tv, premium oled tv, lg premium tv, lg 4k television, lg 4k tv, lg 8k television, lg 8k tv, lg oled ai tv, lg ai tv, ai tv, artificial intelligence tv, ai tv series, ai tv lg, voice command, hands free voice control, smart tv, thinq, lg thinq, thinq ai, lg thinq tv,  best LG OLED, LG OLED TVs, OLED cinema, lg oled cinema, lg oled gaming, tv game, oled game, lg oled sport, oled sport, sport tv, oled lifestyle, oled design, self-lit, self-lighting, self-lit oled, self-lit tv, self-lit lg oled'>
+    <meta name="Author" content="LG OLED AI">
+    <meta name="robots" content="ALL">
+    <link rel="icon" type="image/png" href="../../images/common/favicon.ico" />
+    <link rel="stylesheet" href="../../stylesheets/css/common.css">
+    <script src="../../javascripts/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+        var setCookie = function(name, value, exp) {
+            var lh = location.host;
+            var mydomain = '.lg.com';
+            if(lh.indexOf('lge.com')>=0) {
+                mydomain = '.lge.com';
+            } else if(lh.indexOf('localhost')>=0) {
+                mydomain = 'localhost';
+            }
+            var date = new Date();
+            date.setTime(date.getTime() + exp*24*60*60*1000);
+            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/' + ';domain=' + mydomain;
+        };
+
+        var getCookie = function(name) {
+            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value? value[2] : null;
+        };
+        if(getCookie("analysisCookie") === 'Y') {
+            // adobe
+            var d = document,
+                s = d.createElement('script'),
+                h = d.head || d.getElementsByTagName("head")[0],
+                as = {
+                    "src": "//assets.adobedtm.com/322f63b58a72/8a275ffd7aa6/launch-f8ed4c3e94f9.min.js",
+                    "async": "async"
+                };
+            for (var i in as) {
+                s.setAttribute(i, as[i]);
+            }
+            h.appendChild(s);
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-X5WZ');
+        }
+    </script>
+</head>
+<body>
+<div id="cookieAllPc">
+    <div class="change_wrap">
+        <button type="button" id="cookieChange">Change Cookies Settings</button>
+    </div>
+    <div class="cookie_top">
+        <div class="top_box">
+            <p>
+                We use strictly necessary cookies for this website to function, we do have other optional cookies,
+                which you can enable and descriptions of these are available beside the opt in buttons.
+                To find out further information on our cookies, <a href="">please see our Privacy and Cookie Policy.</a>
+            </p>
+            <div class="accept_wrap">
+                <button type="button" id="allAgreeBtn">ACCEPT ALL COOKIES</button>
+            </div>
+        </div>
+        <button type="button" id="cookieClose">close btn</button>
+    </div>
+    <div class="cookie_bottom">
+        <div class="bottom_box">
+            <p>You will find below the different types of cookies used on LG.com. If you wish to allow any of these cookies, click to opt in.</p>
+            <ol>
+                <li>
+                    <dl>
+                        <dt><span>Functional Cookies</span></dt>
+                        <dd>Enable for useful website features like product reviews, the where to buy function, recently viewed items and search data.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="functionalAgree">
+                        <label for="functionalAgree">Functional Cookies</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Social media</span></dt>
+                        <dd>Connect with your social channels to share LG Technology with friends for example on Facebook and Twitter.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="socialAgree">
+                        <label for="socialAgree">Social media</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Website analysis</span></dt>
+                        <dd>Help us to understand your behaviour on our website so we can improve the content and personalise your experience on LG.COM</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="analysisAgree">
+                        <label for="analysisAgree">Website analysis</label>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dt><span>Advertising and <br>targeting cookies</span></dt>
+                        <dd>Allow us to gather information about how you interact with our advertising and our website.</dd>
+                    </dl>
+                    <div class="check_wrap">
+                        <input type="checkbox" id="advertisingAgree">
+                        <label for="advertisingAgree">Advertising and targeting cookies</label>
+                    </div>
+                </li>
+            </ol>
+            <button type="button" id="cookieSave">SAVE</button>
+        </div>
+    </div>
+    <div id="cookieDimmed" class="dimmed"></div>
+</div>
+<div id="wrap">
+    <!-- header-->
+    <header id="header">
+        <div class="header_wrap">
+            <h1 id="logo"><a href="../main/main.html" title=""></a></h1>
+            <div id="allNav">
+                <button type="button" id="allMenuBtn" title=""><i></i><span>MENU</span></button>
+                <nav>
+                    <h2 class="hidden-txt">all navigation</h2>
+                    <div class="wrap">
+                        <ul>
+                            <li><a href="../sub/meridian.jsp" title="">LG Meridian</a></li>
+                            <li><a href="../sub/pl.jsp" title="">LG PL</a></li>
+                            <li><a href="../sub/pn.jsp" title="">LG PN</a></li>
+                            <li><a href="../sub/jellybean.jsp" title="">LG Jellybean</a></li>
+                        </ul>
+                    </div>
+                    <div class="link_box">
+                        <ul>
+                            <li><a href="#">SEE OLED TV</a></li>
+                            <li><a href="#">SHOP NOW</a></li>
+                        </ul>
+                        <p>ⓒ 2020 LG Electronics.</p>
+                    </div>
+                </nav>
+                <div id="navDimmed" class="dimmed"></div>
+            </div>
+            <a href="#" class="header_buy" title="">SHOP NOW</a>
+        </div>
+    </header>
+    <!-- //header-->
+
+    <!--plContainer-->
+    <div id="container" class="pl_container">
+
+    </div>
+    <!--//plContainer-->
+
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="footer_wrap">
+            <ol class="etc_link">
+                <li><a href="https://www.lg.com/uk/privacy" title="Opens in a new window">PRIVACY</a></li>
+                <li><a href="https://www.lg.com/uk/legal" title="Opens in a new window">LEGAL</a></li>
+            </ol>
+            <p class="copyright">ⓒ 2020 LG Electronics.</p>
+            <div class="share_wrap">
+                <ol>
+                    <li><a href="https://www.facebook.com/LGUK" target="_blank" title="Opens in a new window">facebook</a></li>
+                    <li><a href="https://twitter.com/LGUK" target="_blank" title="Opens in a new window">twitter</a></li>
+                    <li><a href="https://www.youtube.com/user/LGBlogUK" target="_blank" title="Opens in a new window">youtube</a></li>
+                </ol>
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+</div>
+<script src="../../javascripts/plugin.js"></script>
+<script src="../../javascripts/design_common.js"></script>
+</body>
+</html>
