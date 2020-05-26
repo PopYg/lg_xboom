@@ -75,11 +75,7 @@
                 @include opacity(0);
             }
             .pn_img06.loop {
-                @include animation(pnImgLoop .5s .2s infinite alternate);
-                @include keyframes(pnImgLoop){
-                    0% {opacity:0}
-                    100% {opacity:1}
-                }
+                @include animation(imgLoop .5s .2s infinite alternate);
             }
         }
         .pn_txt {
@@ -162,7 +158,10 @@
     }
 }
 
-
+@include keyframes(imgLoop){
+    0% {opacity:0}
+    100% {opacity:1}
+}
 
 
 

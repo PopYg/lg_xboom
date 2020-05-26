@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 /* Font style setting */
-$smart:"LG Smart", Arial, Apple SD Gothic Neo, sans-serif;
-$dinbol:"dinbol", Arial, Apple SD Gothic Neo, sans-serif;
+$gordita:"Gordita", Arial, Apple SD Gothic Neo, sans-serif;
 
 /* Point color setting */
 $black:#000;
@@ -10,11 +9,11 @@ $white:#fff;
 
 $red:#a50034;
 
-$gray1:#1e1e1e;
-$gray2:#646668;
+$gray1:#242526;
+$gray2:#646566;
 $gray3:#a4a4a4;
-$gray4:#d4d4d4;
-$gray5:#f4f4f4;
+$gray4:#ddd;
+$gray5:#f4f5f6;
 
 /* Background - color setting */
 $bg-black:$black;
@@ -49,7 +48,7 @@ $btn-black:$black;
 /**
  * BASE SETTING
  */
-$base-font:"LG Smart", "Apple SD Gothic Neo", AppleGothic, Arial, Helvetica, sans-serif;
+$base-font:"Gordita", "Apple SD Gothic Neo", AppleGothic, Arial, Helvetica, sans-serif;
 $base-font-size:20px;
 $base-font-color:$gray1;
 
@@ -57,5 +56,5 @@ $letter-spacing:0;
 
 $light:300;
 $regular:500;
-$semibold:600;
+$medium:600;
 $bold:700;

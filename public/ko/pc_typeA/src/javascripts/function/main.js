@@ -2,7 +2,6 @@ function main() {
     var $mainContainer = $("#container.main_container");
     if(!$mainContainer.length) return false;
 
-    console.log(winH);
     var $meridianTitle = $("#meridianTitle"),
         $meridianTxt = $meridianTitle.find("h3"),
         $meridianLogo = $meridianTitle.find("img");
@@ -22,7 +21,7 @@ function main() {
                       이미지 main_scene03.png 로 변경
         3번에서 스크롤 하면 텍스트 위로 반정도 올리고,
                       이미지 스케일 .8정도로 줄임
-     */
+    */
 
     /* main scene 1*/
     var controller = new ScrollMagic.Controller({
@@ -33,7 +32,6 @@ function main() {
         $plImg01 = $plImg.find(".pl_img01"),
         $plImg02 = $plImg.find(".pl_img02"),
         $plImg03 = $plImg.find(".pl_img03");
-
     var $plTxt = $scenePl.find(".pl_txt"),
         $plTxt01 = $plTxt.find(".pl_txt01"),
         $plTxt02 = $plTxt.find(".pl_txt02"),
@@ -75,14 +73,14 @@ function main() {
     var scenePL = new ScrollMagic.Scene({
         triggerElement: "#scenePl",
         duration:6000,
-        triggerHook:0,
-        indent: 120
+        triggerHook:0
     })
     .setPin("#scenePl")
     .setTween(plSceneTime)
     .addTo(controller)
     .addIndicators({
-        name: "pl scene"
+        name: "pl scene",
+        indent: 120
     });
 
     /* main scene 2 */

@@ -1,1 +1,267 @@
 @charset "UTF-8";
+
+#container.pl_container {
+    background-color:$black;
+    //pl_series scene
+    #plSeries {
+        width:100%; height:100vh; padding:60px 0 0; position:relative; overflow:hidden; background-color:$black; z-index:10;
+        .scene01 {
+            width:100%; height:100%; position:relative;
+            .pl_img {
+                width:100%;
+                img {
+                    width:100%; position:absolute; top:50%; left:50%; z-index:30;
+                    @include translate(-50%, -50%);
+                    @include opacity(0);
+                    &.pl_img01 {@include opacity(1)}
+                    &.pl_img02 {@include animation(imgLoop .8s .2s infinite alternate);}
+                }
+            }
+            .pl_txt {
+                text-align:center; position:relative; top:em(120); color:$white; z-index:40;
+                h3 {font-size:em(32);}
+                p {font-size:em(70); padding:em(25) 0 0;}
+            }
+        }
+        .scene02 {
+            width:100%; height:100%; position:relative;
+            .pl_img {
+                width:100%;
+                img {
+                    width:100%; position:absolute; top:50%; left:50%; z-index:30;
+                    @include translate(-50%, -50%);
+                    @include opacity(0);
+                }
+            }
+            .pl_txt {
+                width:48%; position:absolute; color:$white; left:52%; top:50%; z-index:50; letter-spacing:em(-1);
+                h4 {
+                    font-size:em(100); line-height:em(106); top:em(160); position:absolute; display:none;
+                    @include opacity(0);
+                    @include translate(0, 30px);
+                }
+                .txt_wrap {
+                    position:absolute; top:em(130); display:none;
+                    @include opacity(0);
+                    @include translate(0, 30px);
+                    p {font-size:em(32); line-height:em(40); color:$gray4; font-weight:$medium;}
+                    a {
+                        width:em(250); height:em(70); color:$gray4; font-size:em(16); line-height:em(64); display:block; text-align:center; margin:em(35) 0 0;
+                        @include borderSet(em(3), solid, $white);
+                        @include transition;
+                        @include borderRadius(em(35));
+                        @include boxSizing;
+                        &:hover,
+                        &:focus {color:$black; background-color:$white;}
+                    }
+                }
+            }
+        }
+        .scene03 {
+            width:100%; height:100%; position:relative;
+            .pl_img {
+                width:100%;
+                img {
+                    width:100%; position:absolute; top:50%; left:50%; z-index:30;
+                    @include translate(-50%, -50%);
+                    @include opacity(0);
+                    &:first-child {@include opacity(1)}
+                    &.pl_img04,
+                    &.pl_img05 {z-index:50;}
+                }
+            }
+            .pl_txt {
+                h4,
+                p {
+                    position:absolute; top:50%; left:em(240); z-index:60;
+                    @include translate(0, 30px);
+                    @include opacity(0)
+                }
+                h4 {font-size:em(100); color:$white; margin:em(-50) 0 0;}
+                p {font-size:em(32); line-height:em(40); margin:em(125) 0 0; color:$gray4;}
+            }
+        }
+    }
+    #dualBass {
+        width:100%; height:100vh; padding:60px 0 0; position:relative; overflow:hidden; background-color:$black; z-index:10; top:-100%;
+        .video_dimmed01 {width:190%; position:absolute; top:0; left:0; z-index:50;}
+        .video_dimmed02 {
+            width:100%; position:absolute; bottom:0; left:0; z-index:50;
+            @include opacity(0);
+        }
+        .scene01 {
+            width:100%; height:100%; position:relative;
+            .video_wrap {
+                video {
+                    width:100%; position:absolute; top:50%; left:50%; z-index:30;
+                    @include translate(-50%, -45%);
+                    @include opacity(0);
+                    &.video_black {@include opacity(1)}
+                    &.video_white {z-index:40;}
+                }
+            }
+            .txt_wrap {
+                text-align:center;
+                .txt01 {
+                    color:$white;
+                    h3,
+                    p {@include opacity(1)}
+                }
+                .txt02 {
+                    h3,
+                    p {@include translate(0, 20px)}
+                }
+                h3,
+                p {
+                    width:100%; position:absolute; z-index:60;
+                    @include opacity(0);
+                }
+                h3 {font-size:em(100); top:em(100);}
+                p {font-size:em(32); line-height:em(40); bottom:em(75); font-weight:$medium;}
+            }
+        }
+    }
+
+    //go sound
+    #goSound {
+        background-color:$white;
+        h3 {padding:em(110) 0 0; font-size:em(70); line-height:em(80); text-align:center; letter-spacing:em(-1)}
+        .slider_wrap {
+            width:1320px; margin:em(100) auto 0; padding:0 0 em(160); position:relative;
+            .img_wrap {
+                width:720px; height:430px; position:relative; top:35px; overflow:hidden; z-index:10;
+                li {
+                    position:absolute; left:0; top:0;
+                    @include opacity(0);
+                    &:first-child {@include opacity(1)}
+                }
+                img {width:100%;}
+            }
+            .slider_txt {
+                width:680px; height:520px; position:absolute; right:0; top:0; background-color:$gray5; padding:80px 0 0 150px;
+                @include boxSizing;
+                li {
+                    position:absolute; top:0; left:0;
+                    @include opacity(0);
+                    &:first-child {@include opacity(1)}
+                }
+                .txt_wrap {position:relative;}
+                .copy_txt {font-size:24px; font-weight:$medium; line-height:34px; color:$gray2; letter-spacing:em(-1)}
+                h4 {padding:45px 0 0; font-size:32px; color:$gray1; letter-spacing:em(1.5)}
+                .name_txt {color:#747576; font-size:20px; font-weight:$medium; padding:20px 0 0;}
+            }
+            .nav_btn {
+                button {
+                    width:48px; height:48px; position:absolute; text-indent:-9999px; bottom:40px; overflow:hidden;
+                    @include borderSet(1px, solid, #191a1b);
+                    @include boxSizing;
+                    @include borderRadius(100%);
+                    @include transition;
+                    &:before,
+                    &:after {
+                        position:absolute; display:block; content:"";
+                        @include transition;
+                    }
+                    &:before {
+                        width:10px; height:10px; left:19px; top:17px; border-bottom:2px solid #191a1b; border-right:2px solid #191a1b;
+                        @include rotate(-45);
+                        @include borderRadius(1px);
+                    }
+                    &:after {width:16px; height:2px; left:15px; top:22px; background-color:#191a1b;}
+                    &.prev_btn {
+                        right:96px;
+                        @include rotate(180);
+                    }
+                    &.next_btn {right:40px;}
+                    &:hover,
+                    &:focus {
+                        background-color:#191a1b;
+                        &:before {border-bottom-color:$white; border-right-color:$white;}
+                        &:after {background-color:$white;}
+                    }
+                }
+            }
+            .indi_btn {
+                width:100%; position:absolute; top:535px; text-align:center;
+                button {
+                    margin:0 4px;
+                    &:hover,
+                    &.active {
+                        span {background-color:$gray1;}
+                    }
+                    span {
+                        width:8px; height:8px; display:block;
+                        @include borderSet(1px, solid, $gray1);
+                        @include borderRadius(100%);
+                        @include boxSizing;
+                    }
+                }
+            }
+        }
+        .new_look {
+            padding:em(70) 0 0;
+            @include displayFlexCenter;
+            @extend %clearfix;
+            > img {width:50%; float:left;}
+            .txt_wrap {
+                width:50%; float:right; padding:0 0 0 em(160);
+                p {font-size:em(56); line-height:em(64); letter-spacing:em(-1)}
+                img {width:em(304); margin:em(40) 0 0;}
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

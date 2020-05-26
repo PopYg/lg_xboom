@@ -235,7 +235,7 @@
 
 //footer
 #footer {
-    padding:20px 120px; position:relative; font-weight:$regular; font-size:12px; background-color:#242526; color:$white;
+    padding:20px 120px; position:relative; font-weight:$regular; font-size:12px; background-color:#242526; color:$white; z-index:500;
     .footer_wrap {height:30px; line-height:30px;}
     p.copyright {float:left; margin:0 0 0 18px;}
     .etc_link {
