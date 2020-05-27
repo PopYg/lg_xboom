@@ -32,18 +32,21 @@ function main() {
         $plImg01 = $plImg.find(".pl_img01"),
         $plImg02 = $plImg.find(".pl_img02"),
         $plImg03 = $plImg.find(".pl_img03");
+    var $plWoofer = $plImg.find(".pl_woofer01, .pl_woofer02");
     var $plTxt = $scenePl.find(".pl_txt"),
         $plTxt01 = $plTxt.find(".pl_txt01"),
         $plTxt02 = $plTxt.find(".pl_txt02"),
         $plTxt03 = $plTxt.find(".pl_txt03");
-    var $plBg = $scenePl.find(".pl_bg");
+    var $plBg = $scenePl.find(".pl_bg"),
+        $plBg02 = $scenePl.find(".pl_bg02");
     var $plLink = $scenePl.find(".link_wrap");
     var _plSceneTimer1 = 1,
         _plSceneTimer2 = 1,
         _plSceneTimer3 = 1;
 
     //bg scene
-    var plSceneBg = TweenMax.to($plBg, 2, {scale:1, opacity:1});
+    var plSceneBg = TweenMax.to($plBg, 2, {scale:1, opacity:1}),
+        plSceneBg02 = TweenMax.to($plBg02, 2, {opacity:1, delay:1});
 
     //link scene
     var plLink = TweenMax.to($plLink, 1, {opacity:1, display:"block"});
@@ -52,7 +55,7 @@ function main() {
     var plSceneImg01 = TweenMax.to($plImg01, _plSceneTimer1, {opacity:1}),
         plSceneImg02 = TweenMax.to($plImg02, _plSceneTimer2, {opacity:1}),
         plSceneImg03 = TweenMax.to($plImg03, _plSceneTimer3, {opacity:1}),
-        plSceneImg04 = TweenMax.to($plImg03, 2, {scale:.7, y:"-48%"}),
+        plSceneImg04 = TweenMax.to($plImg03, 2, {scale:.7, y:"-47%"}),
         plSceneImg03_end = TweenMax.to($plImg.find(".pl_img01, .pl_img02"), .01, {display:"none"});
 
     //txt scene
@@ -67,13 +70,21 @@ function main() {
     plSceneTime.add([plSceneImg01, plSceneTxt01])
                 .add([plSceneImg02, plSceneTxt02, plSceneTxt01_end])
                 .add([plSceneImg03, plSceneTxt03, plSceneTxt02_end])
-                .add([plSceneImg04, plSceneTxt04, plSceneBg, plSceneImg03_end])
+                .add([plSceneImg04, plSceneTxt04, plSceneBg, plSceneImg03_end, plSceneBg02])
                 .add(plLink);
 
     var scenePL = new ScrollMagic.Scene({
         triggerElement: "#scenePl",
         duration:6000,
         triggerHook:0
+    })
+    .on("progress", function (event) {
+        console.log(event.progress);
+        if(event.progress > .8){
+            $plWoofer.addClass("loop");
+        } else {
+            $plWoofer.removeClass("loop");
+        }
     })
     .setPin("#scenePl")
     .setTween(plSceneTime)
@@ -160,55 +171,6 @@ function main() {
         name: "pn scene",
         indent: 80
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 

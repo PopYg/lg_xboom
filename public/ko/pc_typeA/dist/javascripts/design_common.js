@@ -177,18 +177,21 @@ function main() {
         $plImg01 = $plImg.find(".pl_img01"),
         $plImg02 = $plImg.find(".pl_img02"),
         $plImg03 = $plImg.find(".pl_img03");
+    var $plWoofer = $plImg.find(".pl_woofer01, .pl_woofer02");
     var $plTxt = $scenePl.find(".pl_txt"),
         $plTxt01 = $plTxt.find(".pl_txt01"),
         $plTxt02 = $plTxt.find(".pl_txt02"),
         $plTxt03 = $plTxt.find(".pl_txt03");
-    var $plBg = $scenePl.find(".pl_bg");
+    var $plBg = $scenePl.find(".pl_bg"),
+        $plBg02 = $scenePl.find(".pl_bg02");
     var $plLink = $scenePl.find(".link_wrap");
     var _plSceneTimer1 = 1,
         _plSceneTimer2 = 1,
         _plSceneTimer3 = 1;
 
     //bg scene
-    var plSceneBg = TweenMax.to($plBg, 2, {scale:1, opacity:1});
+    var plSceneBg = TweenMax.to($plBg, 2, {scale:1, opacity:1}),
+        plSceneBg02 = TweenMax.to($plBg02, 2, {opacity:1, delay:1});
 
     //link scene
     var plLink = TweenMax.to($plLink, 1, {opacity:1, display:"block"});
@@ -197,7 +200,7 @@ function main() {
     var plSceneImg01 = TweenMax.to($plImg01, _plSceneTimer1, {opacity:1}),
         plSceneImg02 = TweenMax.to($plImg02, _plSceneTimer2, {opacity:1}),
         plSceneImg03 = TweenMax.to($plImg03, _plSceneTimer3, {opacity:1}),
-        plSceneImg04 = TweenMax.to($plImg03, 2, {scale:.7, y:"-48%"}),
+        plSceneImg04 = TweenMax.to($plImg03, 2, {scale:.7, y:"-47%"}),
         plSceneImg03_end = TweenMax.to($plImg.find(".pl_img01, .pl_img02"), .01, {display:"none"});
 
     //txt scene
@@ -212,13 +215,21 @@ function main() {
     plSceneTime.add([plSceneImg01, plSceneTxt01])
                 .add([plSceneImg02, plSceneTxt02, plSceneTxt01_end])
                 .add([plSceneImg03, plSceneTxt03, plSceneTxt02_end])
-                .add([plSceneImg04, plSceneTxt04, plSceneBg, plSceneImg03_end])
+                .add([plSceneImg04, plSceneTxt04, plSceneBg, plSceneImg03_end, plSceneBg02])
                 .add(plLink);
 
     var scenePL = new ScrollMagic.Scene({
         triggerElement: "#scenePl",
         duration:6000,
         triggerHook:0
+    })
+    .on("progress", function (event) {
+        console.log(event.progress);
+        if(event.progress > .8){
+            $plWoofer.addClass("loop");
+        } else {
+            $plWoofer.removeClass("loop");
+        }
     })
     .setPin("#scenePl")
     .setTween(plSceneTime)
@@ -305,55 +316,6 @@ function main() {
         name: "pn scene",
         indent: 80
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -478,8 +440,6 @@ function pl() {
         dualSceneTxt03 = TweenMax.to($dualTxt03, 1, {opacity:1, y:0}),
         dualSceneTxt04 = TweenMax.to($dualTxt04, .5, {opacity:1, y:0, delay:.5});
 
-
-
     var dualBassTime = new TimelineMax();
     dualBassTime.add(dualSceneDimmed01)
                 .add([dualSceneTxt01, dualSceneTxt02])
@@ -497,6 +457,175 @@ function pl() {
         name: "dualBass scene",
         indent: 150
     });
+
+
+    /* pl series scene 2 */
+    var simplyController = new ScrollMagic.Controller({
+        tweenChanges: true
+    });
+
+    var $simply = $("#simply");
+    var $simplyTxt01 = $simply.find("h3"),
+        $simplyTxt02 = $simply.find("p");
+    var $simplyImgWrap = $simply.find(".img_wrap"),
+        $simplyImg01 = $simply.find(".simply_img01"),
+        $simplyImg02 = $simply.find(".simply_img02"),
+        $simplyImg03 = $simply.find(".simply_img03");
+
+    var simplySceneImgWrap = TweenMax.to($simplyImgWrap, 4, {y:"-515rem"});
+    var simplySceneImg01 = TweenMax.to($simplyImg01, 1, {opacity:.2}),
+        simplySceneImg02 = TweenMax.to($simplyImg02, 1, {opacity:1}),
+        simplySceneImg02_end = TweenMax.to($simplyImg02, 1, {opacity:.2, delay:1.5}),
+        simplySceneImg03 = TweenMax.to($simplyImg03, 1, {opacity:1, delay:1.5});
+
+    var simplySceneTxt01 = TweenMax.to($simplyTxt01, 1, {y:"-65%", opacity:0}),
+        simplySceneTxt02 = TweenMax.to($simplyTxt02, 1, {y:"-50%", opacity:1, delay:.5});
+
+    var simplyTime = new TimelineMax();
+    simplyTime.add([simplySceneImg01, simplySceneImgWrap, simplySceneImg02, simplySceneImg02_end, simplySceneImg03, simplySceneTxt01, simplySceneTxt02]);
+
+    var sceneSimply = new ScrollMagic.Scene({
+        triggerElement: "#simply",
+        duration:2500,
+        triggerHook:0
+    })
+    .setPin("#simply")
+    .setTween(simplyTime)
+    .addTo(simplyController)
+    .addIndicators({
+        name: "simply scene",
+        indent: 150
+    });
+
+    //surround
+    var $surround = $("#surround");
+    var $surroundTxt01 = $surround.find(".txt_wrap h3"),
+        $surroundTxt02 = $surround.find(".txt_wrap p"),
+        $surroundTxt03 = $surround.find(".disc");
+
+    var $surroundImg01 = $surround.find(".surround_img01"),
+        $surroundImg02 = $surround.find(".surround_img02"),
+        $surroundImg03 = $surround.find(".surround_img03");
+
+    var surroundSceneTxt01 = TweenMax.to($surroundTxt01, 1, {y:-20, opacity:0}),
+        surroundSceneTxt02 = TweenMax.to($surroundTxt02, 2, {y:0, opacity:1, delay:.5}),
+        surroundSceneTxt03 = TweenMax.to($surroundTxt03, 2, {opacity:1, delay:.5});
+
+    var surroundSceneImg01 = TweenMax.to($surroundImg01, 2, {x:"-50%"}),
+        surroundSceneImg02 = TweenMax.to($surroundImg02, 2, {x:"-50%"}),
+        surroundSceneImg03 = TweenMax.to($surroundImg03, 1, {opacity:1, delay:2});
+
+    var surroundTime = new TimelineMax();
+    surroundTime.add([surroundSceneImg01, surroundSceneImg02, surroundSceneImg03, surroundSceneTxt01, surroundSceneTxt02, surroundSceneTxt03]);
+
+    var sceneSimply = new ScrollMagic.Scene({
+        triggerElement: "#surround",
+        duration:2500,
+        triggerHook:0
+    })
+    .setPin("#surround")
+    .setTween(surroundTime)
+    .addTo(simplyController)
+    .addIndicators({
+        name: "surround scene",
+        indent: 150
+    });
+
+
+    //battery
+    var $battery = $("#battery");
+    var $batteryTxt01 = $battery.find(".txt_wrap h3"),
+        $batteryTxt02 = $battery.find(".txt_wrap p"),
+        $batteryTxt03 = $battery.find(".disc");
+
+    var $batteryImg01 = $battery.find(".battery_img01"),
+        $batteryImg03 = $battery.find(".battery_img03");
+
+    var batterySceneTxt01 = TweenMax.to($batteryTxt01, 1, {y:0, opacity:1}),
+        batterySceneTxt01_end = TweenMax.to($batteryTxt01, 1, {y:-20, opacity:0}),
+        batterySceneTxt02 = TweenMax.to($batteryTxt02, 2, {y:0, opacity:1, delay:.5}),
+        batterySceneTxt03 = TweenMax.to($batteryTxt03, 1, {opacity:1, delay:1.5});
+
+    var batterySceneImg01 = TweenMax.to($batteryImg01, 2, {rotation:-20}),
+        batterySceneImg02 = TweenMax.to($batteryImg03, 2, {y:"-50%"});
+
+    var batteryTime = new TimelineMax();
+    batteryTime.add([batterySceneTxt01, batterySceneImg01])
+                .add([batterySceneTxt01_end, batterySceneTxt02, batterySceneImg02, batterySceneTxt03]);
+
+    var batterySimply = new ScrollMagic.Scene({
+        triggerElement: "#battery",
+        duration:2000,
+        triggerHook:0
+    })
+    .setPin("#battery")
+    .setTween(batteryTime)
+    .addTo(simplyController)
+    .addIndicators({
+        name: "battery scene",
+        indent: 150
+    });
+    
+    //choice
+    var $choice = $("#choice");
+    var $choiceTxt01 = $choice.find(".txt_wrap h3");
+
+    var $choiceImg01 = $choice.find(".choice_img02"),
+        $choiceImg02 = $choice.find(".choice_img03"),
+        $choiceImg03 = $choice.find(".choice_img04, .choice_img05"),
+        $choiceImg04 = $choice.find(".choice_img06, .choice_img07, .choice_img08");
+
+
+    var choiceSceneImg01 = TweenMax.to($choiceImg01, 1, {opacity:0}),
+        choiceSceneImg02 = TweenMax.to($choiceImg02, 1, {opacity:1}),
+        choiceSceneImg03 = TweenMax.staggerTo($choiceImg03, 1, {left:"0%", top:"0%"}, .2),
+        choiceSceneImg04 = TweenMax.staggerTo($choiceImg04, 1, {left:"0%", bottom:"0%"}, .2);
+
+    var choiceSceneTxt01 = TweenMax.to($choiceTxt01, 1, {y:"-50%", opacity:1});
+
+    var choiceTime = new TimelineMax();
+    choiceTime.add([choiceSceneImg01, choiceSceneImg02])
+                .add([choiceSceneImg03, choiceSceneImg04])
+                .add(choiceSceneTxt01);
+
+    var choiceSimply = new ScrollMagic.Scene({
+        triggerElement: "#choice",
+        duration:2000,
+        triggerHook:0
+    })
+    .setPin("#choice")
+    .setTween(choiceTime)
+    .addTo(simplyController)
+    .addIndicators({
+        name: "choice scene",
+        indent: 150
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //goSoundRolling
     var $goSoundRolling = $("#goSound .slider_wrap");
@@ -547,34 +676,6 @@ function pl() {
 
         goSoundCrr.number = _index;
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 function pn() {
 

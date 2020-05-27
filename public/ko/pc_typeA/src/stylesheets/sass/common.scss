@@ -27,7 +27,7 @@ caption { width:1px; height:1px; overflow:hidden; margin:-1px;}
     @include opacity(0);
 }
 
-html, body { max-width:100%; min-width:1440px;}
+html, body { max-width:100%; min-width:1440px; overflow-x:hidden;}
 html.no_scroll { overflow:hidden; padding:0 17px 0 0;}
 
 //hidden text

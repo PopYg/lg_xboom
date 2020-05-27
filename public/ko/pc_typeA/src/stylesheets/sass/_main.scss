@@ -29,13 +29,24 @@
                 @include opacity(0);
                 &:first-child {@include opacity(.6);}
                 &.pl_img03 {z-index:60;}
+                &.pl_woofer01,
+                &.pl_woofer02 {@include transform(translate(-50%, -47%) scale(.7)); z-index:60;}
+                &.pl_woofer01.loop {
+                    @include animation(imgLoop .2s .1s infinite alternate);
+                }
+                &.pl_woofer02.loop {
+                    @include animation(imgLoop .1s .1s infinite alternate);
+                }
             }
         }
-        .pl_bg {
+
+        .pl_bg,
+        .pl_bg02 {
             width:100%; position:absolute; top:50%; left:50%; z-index:50;
-            @include transform(translate(-50%, -50%) scale(1.5));
             @include opacity(0);
         }
+        .pl_bg {@include transform(translate(-50%, -50%) scale(1.5));}
+        .pl_bg02 {@include translate(-50%, -50%) }
         .pl_txt {
             color:$white; font-size:em(160); text-align:center; font-weight:$bold;
             p {
