@@ -239,32 +239,6 @@ function pl() {
         indent: 150
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //goSoundRolling
     var $goSoundRolling = $("#goSound .slider_wrap");
     var $imgWrap = $goSoundRolling.find(".img_wrap"),
@@ -314,4 +288,52 @@ function pl() {
 
         goSoundCrr.number = _index;
     });
+
+    //choose select
+    var $choose = $("#choose");
+    var $colorBtn = $choose.find(".color_btn button");
+
+    $colorBtn.click(function(){
+        var _this = $(this);
+        var _index = _this.index();
+        var $colorImg = _this.parent().parent().siblings().find("img");
+
+
+        TweenMax.to($colorImg, 1, {opacity:0});
+        TweenMax.to($colorImg.eq(_index), 1, {opacity:1});
+
+        _this.siblings().removeClass("active");
+        _this.addClass("active");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

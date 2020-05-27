@@ -322,7 +322,6 @@
     //choice
     #choice {
         width:100%; height:100vh; padding:60px 0 0; position:relative; z-index:10;
-        @include boxSizing;
         .scene_wrap {
             min-width:1440px; height:100%; position:relative; overflow:hidden; background-color:#ebecf0;
             .img_wrap {
@@ -338,14 +337,10 @@
             img {
                 width:100%; position:absolute; z-index:30;
                 &.choice_img04,
-                &.choice_img05 {
-                    left:-28%; top:-25%;
-                }
+                &.choice_img05 {left:-35%; top:-32%;}
                 &.choice_img06,
                 &.choice_img07,
-                &.choice_img08 {
-                    left:28%; bottom:-25%;
-                }
+                &.choice_img08 {left:35%; bottom:-32%;}
             }
         }
         .txt_wrap {
@@ -353,6 +348,89 @@
                 font-size:em(90); line-height:em(96); letter-spacing:em(-3); position:absolute; left:em(300); top:50%;
                 @include translate(0, -45%);
                 @include opacity(0);
+            }
+        }
+    }
+
+    //choose
+    #choose {
+        background-image:url(../../images/pl/choose_bg.jpg); background-color:#f1f2f6; padding:0 0 em(100);
+        @include backgroundSolt(50%, 0, repeat-x);
+        h3 {text-align:center; padding:em(130) 0 0; color:$white; font-size:em(56); letter-spacing:em(-3);}
+        .choose_wrap {
+            max-width:1320px; margin:em(160) auto 0;
+            .product_wrap {
+                padding:0 0 0 12.8%;
+                @extend %clearfix;
+                li {
+                    float:left;
+                    &.pl7 {width:36.3%;}
+                    &.pl5 {width:32.7%;}
+                    &.pl2 {width:31%;}
+                }
+                .img_wrap {position:relative;}
+                img {
+                    width:100%;
+                    &:nth-of-type(2) {
+                        position:absolute; top:0; left:0;
+                        @include opacity(0);
+                    }
+                }
+            }
+            .color_btn {
+                text-align:center; margin:em(34) 0 0;
+                .btn_box {
+                    display:inline-block;
+                    @extend %clearfix;
+                    button {
+                        width:81px; height:30px; position:relative; font-size:13px; text-align:left; float:left; font-weight:$bold; color:#727478; background-color:$white;
+                        @include borderSet(1px, solid, #cecece);
+                        @include transition;
+                        i {
+                            width:16px; height:16px; display:block; content:""; position:absolute; top:7px; left:8px;
+                            @include borderSet(1px, solid, #cecece);
+                            @include borderRadius(100%);
+                            @include boxSizing;
+                            @include transition;
+                            @include backgroundSolt(50%, 50%);
+                        }
+                        span {line-height:28px; padding:0 0 0 30px;}
+                        &:nth-of-type(1) {
+                            margin:0 -1px 0 0;
+                            @include borderLeftRadius(5px);
+                        }
+                        &:nth-of-type(2) {
+                            &:after {width:1px; height:100%; display:block; content:""; position:absolute; left:-1px; top:0; background-color:$gray1;}
+                            @include borderRightRadius(5px);
+                        }
+                        &:hover,
+                        &.active {border-color:$gray1; color:$gray1;}
+                        &.active {
+                            i {border-color:$gray1;}
+                            &:nth-of-type(1) i {background-image:url(../../images/pl/check_icon_white.gif); background-color:$black;}
+                            &:nth-of-type(2) i {background-image:url(../../images/pl/check_icon_black.gif);}
+                        }
+                    }
+                }
+            }
+        }
+        table {
+            margin:40px 0 0;
+            thead {
+                text-align:center; font-size:26px;
+                th { padding:0 0 25px;}
+            }
+            tbody {
+                th {font-weight:$medium; font-size:19px; line-height:40px; letter-spacing:em(-1)}
+                td {text-align:center; font-weight:$regular; font-size:18px;}
+                a {
+                    width:152px; height:48px; display:inline-block; font-size:14px; font-weight:$medium; margin:25px 0 0; line-height:46px;
+                    @include borderRadius(24px);
+                    @include borderSet(1px, solid, $gray1);
+                    @include transition;
+                    &:hover,
+                    &:focus {background-color:$gray1; color:$white;}
+                }
             }
         }
     }

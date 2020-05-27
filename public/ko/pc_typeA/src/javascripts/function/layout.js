@@ -48,7 +48,7 @@ function layout() {
     $cookieChangeBtn.click(function () {
         $cookieAll.addClass("cookie_open");
         TweenMax.to($cookieChangeWrap, .3, {height:0});
-        TweenMax.to($cookieAll, .5, {height:410});
+        TweenMax.to($cookieAll, .5, {height:470});
     });
     $cookieClose.click(function () {
         $cookieAll.removeClass("cookie_open");
@@ -102,7 +102,7 @@ function layout() {
     if(getCookie(_cookieNameSocial) === "Y"){
         $socialAgree.checked = true;
     }
-    if(getCookie("analysisCookie") === "Y" && getCookie(_cookieNameAnalysis) === "Y"){
+    if(getCookie("analysisCookie") === "Y" || getCookie(_cookieNameAnalysis) === "Y"){
         $analysisAgree.checked = true;
     }
     if(getCookie(_cookieNameAdvertising) === "Y"){

@@ -82,7 +82,7 @@ function layout() {
     $cookieChangeBtn.click(function () {
         $cookieAll.addClass("cookie_open");
         TweenMax.to($cookieChangeWrap, .3, {height:0});
-        TweenMax.to($cookieAll, .5, {height:410});
+        TweenMax.to($cookieAll, .5, {height:470});
     });
     $cookieClose.click(function () {
         $cookieAll.removeClass("cookie_open");
@@ -136,7 +136,7 @@ function layout() {
     if(getCookie(_cookieNameSocial) === "Y"){
         $socialAgree.checked = true;
     }
-    if(getCookie("analysisCookie") === "Y" && getCookie(_cookieNameAnalysis) === "Y"){
+    if(getCookie("analysisCookie") === "Y" || getCookie(_cookieNameAnalysis) === "Y"){
         $analysisAgree.checked = true;
     }
     if(getCookie(_cookieNameAdvertising) === "Y"){
@@ -601,32 +601,6 @@ function pl() {
         indent: 150
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //goSoundRolling
     var $goSoundRolling = $("#goSound .slider_wrap");
     var $imgWrap = $goSoundRolling.find(".img_wrap"),
@@ -676,6 +650,54 @@ function pl() {
 
         goSoundCrr.number = _index;
     });
+
+    //choose select
+    var $choose = $("#choose");
+    var $colorBtn = $choose.find(".color_btn button");
+
+    $colorBtn.click(function(){
+        var _this = $(this);
+        var _index = _this.index();
+        var $colorImg = _this.parent().parent().siblings().find("img");
+
+
+        TweenMax.to($colorImg, 1, {opacity:0});
+        TweenMax.to($colorImg.eq(_index), 1, {opacity:1});
+
+        _this.siblings().removeClass("active");
+        _this.addClass("active");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 function pn() {
 
