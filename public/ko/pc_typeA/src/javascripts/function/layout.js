@@ -1,4 +1,5 @@
 function layout() {
+    //gnb nav
     var $allNav = $("#allNav");
     var $gnbNav = $allNav.find("nav");
     var $allMenuBtn = $("#allMenuBtn");
@@ -19,11 +20,35 @@ function layout() {
     $navDimmed.click(function () {
         allNavClose();
     });
+
+    //buy nav
+    var $buyNav = $("#buyNav");
+    var $buyDepth = $buyNav.find("nav");
+    var $buyNavBtn = $("#buyNavBtn");
+
+    //nav btn open
+    $buyNavBtn.click(function () {
+        var _this = $(this);
+        if(!$buyNav.hasClass("nav_open")){
+            $html.addClass("no_scroll");
+            $buyNav.addClass("nav_open");
+            TweenMax.to($navDimmed, .3, {display:"block", opacity:.6});
+            TweenMax.to($buyDepth, .3, {x:"0%", ease:esStep});
+        } else {
+            allNavClose();
+        }
+    });
+
+    //nav close
+    $navDimmed.click(function () {
+        allNavClose();
+    });
     function allNavClose(){
         $html.removeClass("no_scroll");
-        $allNav.removeClass("nav_open");
+        $("#allNav, #buyNav").removeClass("nav_open");
         TweenMax.to($navDimmed, .3, {display:"none", opacity:0});
         TweenMax.to($gnbNav, .3, {x:"-100%", ease:esStep});
+        TweenMax.to($buyDepth, .3, {x:"100%", ease:esStep});
     }
 
     //cookie

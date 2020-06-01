@@ -8,7 +8,7 @@
         .cookie_bottom {display:block;}
     }
     #cookieChange {
-        display:inline-block; position:relative; padding:0 40px 0 20px; line-height:50px; color:$gray2; font-weight:$medium;
+        display:inline-block; position:relative; padding:0 40px 0 20px; line-height:50px; color:$gray2; font-weight:$medium; font-size:16px;
         &:after {
             width:0; height:0; display:block; content:""; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom-style:solid; border-bottom-width:8px; border-bottom-color:$gray2;
             position:absolute; right:20px; top:22px;
@@ -22,36 +22,18 @@
             width:1280px; padding:25px 0; margin:0 auto;
             @extend %clearfix;
             p {
-                width:50%; float:left; font-size:16px; line-height:20px;
+                width:50%; float:left; font-size:13px; line-height:20px;
                 a {text-decoration:underline;}
             }
             .accept_wrap {
                 float:right; padding:8px 0 0;
                 @extend %clearfix;
                 button {
-                    height:44px; float:left; font-weight:600;
+                    height:44px; float:left; font-weight:600; font-size:16px; background-color:$red; padding:0 24px; color:$white;
+                    @include borderSet(2px, solid, $red);
                     @include borderRadius(5px);
-                    &#allAgreeBtn {background-color:$red; padding:0 24px; color:$white;}
-                    &#detailOpenBtn {
-                        padding:0 44px 0 24px; color:$white; position:relative; background-color:$red; margin:0 0 0 12px;
-                        @include borderSet(1px, solid, $red);
-                        @include boxSizing;
-                        @include transition;
-                        &:after {
-                            width:0; height:0; display:block; content:""; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom-style:solid; border-bottom-width:8px; border-bottom-color:$white;
-                            position:absolute; right:22px; top:18px;
-                            @include transition;
-                            @include rotate(180);
-                        }
-                        &.active {
-                            background-color:$white; color:$gray1; border-color:$white;
-                            &:after {
-                                border-bottom-color:$gray1;
-                                @include rotate(0);
-                            }
-                            &:hover {border-color:$red;}
-                        }
-                    }
+                    @include transition;
+                    &:hover {color:$red; background-color:$white;}
                 }
             }
         }
@@ -60,7 +42,7 @@
         width:100%; background-color:$white; position:absolute; z-index:10; display:none;
         .bottom_box {
             width:1280px; margin:0 auto; position:relative; padding:0 0 85px;
-            p {line-height:20px; font-size:16px; padding:25px 0; border-bottom:1px solid $gray4;}
+            p {line-height:20px; font-size:14px; padding:25px 0; border-bottom:1px solid $gray4;}
             ol {
                 padding:20px 0 0;
                 @extend %clearfix;
@@ -71,10 +53,10 @@
             }
             dl {
                 dt {
-                    font-size:22px; font-weight:600; height:44px; display:table;
+                    font-size:20px; font-weight:600; height:44px; display:table;
                     span {display:table-cell; vertical-align:middle;}
                 }
-                dd {padding:20px 0 0; font-size:16px; line-height:20px;}
+                dd {padding:20px 0 0; font-size:14px; line-height:20px;}
             }
             .check_wrap {
                 position:absolute; top:9px; right:0;
@@ -121,9 +103,7 @@
     width:100%; height:60px; min-width:1280px; background-color:$black; position:absolute; top:50px; z-index:200; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#5a595e;
     @include boxSizing;
     @include transition(background-color, .2s);
-    &.fixed {
-        top:0; position:fixed;
-    }
+    &.fixed {top:0; position:fixed;}
     .header_wrap {
         position:relative; text-align:center;
         #logo {
@@ -139,6 +119,7 @@
                 button {
                     border-right-color:$white;
                     i {
+                        width:20px;
                         &:before {
                             background-color:$gray1; top:3px;
                             @include rotate(45);
@@ -158,7 +139,7 @@
                 }
             }
             button {
-                height:59px; position:absolute; top:0; left:0; padding:0 30px; z-index:30; color:$white; font-size:15px; font-weight:$bold;
+                height:59px; position:absolute; top:0; left:0; padding:0 30px; z-index:30; color:$white; font-size:12px; font-weight:$bold;
                 border-right-width:1px; border-right-style:solid; border-right-color:#5a595e;
                 @include transition;
                 i {
@@ -181,54 +162,130 @@
                 }
             }
             nav {
-                width:50%; height:100%; position:fixed; background-color:$white; left:0; top:0; display:table; text-align:center; z-index:20;
+                width:640px; height:100%; position:fixed; background-color:$white; left:0; top:0; z-index:20;
                 @include translate(-100%, 0);
                 h2 {text-indent:-9999px;}
-                .wrap {
-                    width:100%; height:85%;
+                .gnb_wrap {
+                    width:100%; text-align:left; padding:0 0 0 em(125);
+                    @include boxSizing;
                     ul {
-                        position:relative; top:50%; transform:translate(0,-50%);
-                        &:after {content:""; display:block; clear:both;}
+                        margin:em(210) 0 0;
                         li {
-                            height:63px; line-height:60px;
+                            padding:45px 0 0;
                             &:first-child {padding:0;}
                         }
                         a {
-                            position:relative; color:#646668; font-size:34px; font-weight:$light; letter-spacing:1px;
-                            @include transition(all, .1s);
-                            &:hover {font-weight:$bold; color:$black;}
+                            position:relative; color:$gray1; font-size:26px; font-weight:$medium; letter-spacing:-1.5px;
+                            &:hover span {color:$gray1;}
+                            span {
+                                color:#848586; display:inline-block; padding:0 0 0 30px; position:relative; font-size:24px;
+                                @include transition(color, .2s);
+                                &:before {width:1px; height:18px; display:block; content:""; background-color:#848586; position:absolute; left:15px; top:4px;}
+                            }
                         }
                     }
+                    p {padding:40px 0 0; font-size:26px; font-weight:$medium;}
                 }
             }
-            .link_box {
-                height:15%; clear:both; text-align:center; position:relative;
-                ul {
-                    display:inline-block; color:#646668;
-                    &:after {content:""; display:block; clear:both;}
-                    li {
-                        width:155px; float:left; position:relative;
-                        &:before {content:""; display:block; width:1px; height:16px; background-color:$gray4; position:absolute; left:5px; top:3px;}
-                        &:first-child {
-                            &:before {display:none;}
+            .shop_now {
+                width:100%; position:absolute; bottom:0;
+                a {
+                    width:100%; height:70px; display:block; font-size:14px; border-top:1px solid #ddd; line-height:70px;
+                    @include transition;
+                    &:hover,
+                    &:focus {color:$white; background-color:$black;}
+                    span {
+                        display:inline-block; padding:0 20px 0 0; position:relative;
+                        &:before {
+                            width:8px; height:8px; display:block; content:""; position:absolute; top:30px; right:0; border-bottom:2px solid $red; border-right:2px solid $red;
+                            @include rotate(-45);
+                            @include borderRadius(1px);
                         }
-                        a {font-size:22px;}
-                        a:hover {font-weight:$bold;}
                     }
                 }
-                p {font-size:12px; position:absolute; left:50%; transform:translate(-50%,0); bottom:40px; text-align:center; color:#646668;}
             }
             #navDimmed {z-index:10;}
         }
     }
-    .header_buy {
-        height:59px; line-height:59px; position:absolute; top:0; right:0; z-index:1; font-weight:700; font-size:15px; color:$white; letter-spacing:1.2px;
-        border-left-width:1px; border-left-style:solid; border-left-color:#5a595e; padding:0 37px 0 73px; background-image:url(../../images/layout/header_buy.png);
-        @include backgroundSolt(37px, 50%);
-        @include transition;
-        &:hover,
-        &:focus {
-            background-color:$white; color:$black; background-image:url(../../images/layout/header_buy_black.png);
+    #buyNav {
+        #buyNavBtn {
+            height:59px; line-height:59px; position:absolute; top:0; right:0; z-index:30; font-weight:700; font-size:12px; color:$white; letter-spacing:1.2px;
+            border-left-width:1px; border-left-style:solid; border-left-color:#5a595e; padding:0 37px 0 73px; background-image:url(../../images/layout/header_buy.png);
+            @include backgroundSolt(37px, 50%);
+            @include transition;
+            &:hover {background-color:$white; color:$black; background-image:url(../../images/layout/header_buy_black.png);}
+            i {
+                width:20px; height:20px; position:absolute; display:block; top:26px; right:40px;
+                &:before,
+                &:after {
+                    width:100%; height:2px; display:block; content:""; background-color:transparent; position:absolute; left:0;
+                    @include transition;
+                }
+                &:before {top:0;}
+                &:after {bottom:0;}
+            }
+            &:hover {background-color:$white; color:$black;}
+        }
+        &.nav_open {
+            #buyNavBtn {
+                border-left-color:$white; background-image:url(../../images/layout/header_buy.png);
+                &:hover {color:$white;}
+                i {
+                    &:before {
+                        background-color:$gray1; top:3px;
+                        @include rotate(45);
+                    }
+                    &:after {
+                        background-color:$gray1; top:3px;
+                        @include rotate(-45);
+                    }
+                }
+            }
+        }
+        nav {
+            width:640px; height:100%; position:fixed; background-color:$white; right:0; top:0; z-index:20;
+            @include translate(100%, 0);
+            h2 {text-indent:-9999px;}
+            .buy_wrap {
+                width:100%; text-align:left; padding:0 em(80);
+                @include boxSizing;
+                ol {
+                    margin:em(210) 0 0;
+                    > li {
+                        padding:45px em(30) 0; margin:45px 0 0; border-top:1px solid $gray4;
+                        &:first-child {padding:0 em(30); border-top:0;}
+                        p {
+                            position:relative; color:$gray1; font-size:26px; font-weight:$medium; letter-spacing:-1.5px;
+                            span {
+                                color:#848586; display:inline-block; padding:0 0 0 30px; position:relative; font-size:24px;
+                                @include transition(color, .2s);
+                                &:before {width:1px; height:18px; display:block; content:""; background-color:#848586; position:absolute; left:15px; top:4px;}
+                            }
+                        }
+                    }
+                }
+                ul {
+                    font-size:16px; font-weight:$regular; margin:35px 0 0;
+                    @extend %clearfix;
+                    li {
+                        float:left; margin:0 0 0 30px;
+                        &:first-child {margin:0;}
+                    }
+                    a {
+                        color:#949596; display:block; position:relative; padding:0 0 3px;
+                        @include transition(color, .2s);
+                        &:after {
+                            width:100%; height:1px; display:block; content:""; position:absolute; bottom:0; left:0; background-color:#444546;
+                            @include scaleX(0);
+                            @include transition(transform, .2s);
+                        }
+                        &:hover {
+                            color:#444546;
+                            &:after {@include scaleX(1);}
+                        }
+                    }
+                }
+            }
         }
     }
 }
