@@ -77,7 +77,7 @@
                     @include opacity(0)
                 }
                 h4 {font-size:em(100); color:$white; margin:em(-50) 0 0;}
-                p {font-size:em(32); line-height:em(40); margin:em(125) 0 0; color:$gray4;}
+                p {font-size:em(32); line-height:em(40); margin:em(125) 0 0; color:$gray4; font-weight:$medium;}
             }
         }
     }

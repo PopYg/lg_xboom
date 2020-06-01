@@ -9,19 +9,7 @@ function main() {
     /*var openingScene = new TimelineLite();
     openingScene.to($meridianTxt, 1, {opacity:0, delay:1, ease:esStep})
                 .to($meridianLogo, 1, {opacity:1, ease:esStep})
-                .to($meridianTitle, 1, {opacity:0, display:"none", ease:esStep});
-                // .set($("body"), {overflow:"auto", padding:0});*/
-
-    /*
-        메인 PL scene
-        0번에서 스크롤 하면 이미지 오퍼 60 ~ 100으로 NEW LOOK 텍스트 올라옴
-        1번에서 스크롤 하면  NEW LOOK - > SIMPLY STYLISH로 변경,
-                      이미지 main_scene02.png 로 변경
-        2번에서 스크롤 하면  SIMPLY STYLISH - > The New PL Series로 변경,
-                      이미지 main_scene03.png 로 변경
-        3번에서 스크롤 하면 텍스트 위로 반정도 올리고,
-                      이미지 스케일 .8정도로 줄임
-    */
+                .to($meridianTitle, 1, {opacity:0, display:"none", ease:esStep, onComplate:function(){$("html").removeClass("main_intro")}});*/
 
     /* main scene 1*/
     var controller = new ScrollMagic.Controller({
@@ -64,7 +52,7 @@ function main() {
         plSceneTxt02 = TweenMax.to($plTxt02, _plSceneTimer2, {opacity:1, delay:.5}),
         plSceneTxt02_end = TweenMax.to($plTxt02, .3, {opacity:0, y:-40}),
         plSceneTxt03 = TweenMax.to($plTxt03, _plSceneTimer3, {opacity:1, delay:.5}),
-        plSceneTxt04 = TweenMax.to($plTxt03, 2, {fontSize:"6rem", top:"21%"});
+        plSceneTxt04 = TweenMax.to($plTxt03, 2, {fontSize:"4.8rem", top:"21%"});
 
     var plSceneTime = new TimelineMax();
     plSceneTime.add([plSceneImg01, plSceneTxt01])
@@ -79,7 +67,6 @@ function main() {
         triggerHook:0
     })
     .on("progress", function (event) {
-        console.log(event.progress);
         if(event.progress > .8){
             $plWoofer.addClass("loop");
         } else {
@@ -116,7 +103,7 @@ function main() {
         pnSceneTxt02 = TweenMax.to($pnTxt02, .5, {opacity:1, delay:.5}), //scene1
         pnSceneTxt02_end = TweenMax.to($pnTxt02, .5, {opacity:0, y:-40}), //scene2
         pnSceneTxt03 = TweenMax.to($pnTxt03, .5, {opacity:1, delay:.5}), //scene2
-        plSceneTxt03_end = TweenMax.to($pnTxt03, 2, {fontSize:"6rem", top:"16%"}); //scene3
+        plSceneTxt03_end = TweenMax.to($pnTxt03, 2, {fontSize:"4.8rem", top:"16%"}); //scene3
 
     //image scene
     var pnSceneImg01 = TweenMax.to($pnImg01, _plSceneTimer1, {opacity:1}), //scene1
@@ -159,7 +146,6 @@ function main() {
     .setPin("#scenePn")
     .setTween(pnSceneTime)
     .on("progress", function (event) {
-        console.log(event.progress);
         if(event.progress > .45){
             $pnImg06.addClass("loop");
         } else {

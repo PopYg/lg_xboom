@@ -62,7 +62,6 @@ function pl() {
     var $dualBass = $("#dualBass");
     var $videoDimmed01 = $dualBass.find(".video_dimmed01"),
         $videoDimmed02 = $dualBass.find(".video_dimmed02")
-
     var $dualWhiteVideo = $dualBass.find(".video_white"),
         $dualTxt = $dualBass.find(".txt_wrap"),
         $dualTxt01 = $dualTxt.find(".txt01 h3"),
@@ -72,6 +71,7 @@ function pl() {
 
     var dualSceneDimmed01 = TweenMax.to($videoDimmed01, .5, {opacity:0}),
         dualSceneDimmed02 = TweenMax.to($videoDimmed02, .5, {opacity:1});
+
     var dualSceneVideo = TweenMax.to($dualWhiteVideo, .5, {opacity:1});
     var dualSceneTxt01 = TweenMax.to($dualTxt01, 1, {opacity:0, y:-20}),
         dualSceneTxt02 = TweenMax.to($dualTxt02, .5, {opacity:0, y:-20, delay:.5}),
@@ -213,7 +213,6 @@ function pl() {
         $choiceImg03 = $choice.find(".choice_img04, .choice_img05"),
         $choiceImg04 = $choice.find(".choice_img06, .choice_img07, .choice_img08");
 
-
     var choiceSceneImg01 = TweenMax.to($choiceImg01, 1, {opacity:0}),
         choiceSceneImg02 = TweenMax.to($choiceImg02, 1, {opacity:1}),
         choiceSceneImg03 = TweenMax.staggerTo($choiceImg03, 1, {left:"0%", top:"0%"}, .2),
@@ -298,9 +297,8 @@ function pl() {
         var _index = _this.index();
         var $colorImg = _this.parent().parent().siblings().find("img");
 
-
-        TweenMax.to($colorImg, 1, {opacity:0});
-        TweenMax.to($colorImg.eq(_index), 1, {opacity:1});
+        TweenMax.to($colorImg, .1, {opacity:0});
+        TweenMax.to($colorImg.eq(_index), .1, {opacity:1});
 
         _this.siblings().removeClass("active");
         _this.addClass("active");
